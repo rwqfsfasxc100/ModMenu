@@ -1,0 +1,13 @@
+locale|en
+
+MENU_MODMENU_MAIN|Mod Menu
+
+MODMENU_TAB_MODS|Mods
+
+MODMENU_TAB_INFO|About ModMenu
+
+MODMENU_CREDITS|Credits: __hev, Za'krin Yoran
+
+MODMENU_GITHUB|ModMenu GitHub
+
+MODMENU_SELF_CONFIG|ModMenu Settings

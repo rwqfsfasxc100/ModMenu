@@ -25,13 +25,18 @@ custom_constants/margin_top = 16
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = 48
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 margin_top = 16.0
 margin_right = 1278.0
 margin_bottom = 621.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+margin_top = 16.0
+margin_right = 472.0
+margin_bottom = 57.0
 custom_constants/separation = 6
 
-[node name="MODMENU_CONFIG" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_right = 1278.0
+[node name="MODMENU_CONFIG" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 472.0
 margin_bottom = 41.0
 text = "MODMENU_SELF_CONFIG"
