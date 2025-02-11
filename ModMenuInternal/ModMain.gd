@@ -10,6 +10,8 @@ var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
 var _savedObjects := []
 
+var USING_EXTERNAL_MODMENU = true
+
 var modConfig = {}
 #Initializes the configuration variable. Used by loadSettings.
 
@@ -27,20 +29,23 @@ func _init(modLoader = ModLoader):
 	loadDLC() # preloads DLC as things may break if this isn't done
 	
 	modsInstalled() # checks mods folder and returns any files
+	if not modDependancy.has("ModMenu.zip"):
+		l("External ModMenu not found, falling back to internal installation")
+		USING_EXTERNAL_MODMENU = false
+	else:
+		l("External ModMenu found, skipping")
 	
+	if not USING_EXTERNAL_MODMENU:
+		replaceScene("TitleScreen.tscn")
 	
 	# Loads translation file. For this example, the english translation file is used. 
-	updateTL("i18n/en.txt", "|")
+	if not USING_EXTERNAL_MODMENU:
+		updateTL("i18n/en.txt", "|")
 	
 # Do stuff on ready
 # At this point all AutoLoads are available and the game is loaded
 func _ready():
 	l("Readying")
-	if not modDependancy.has("ModMenu.zip"):
-		l("External ModMenu not found, falling back to internal installation")
-		replaceScene("TitleScreen.tscn")
-	else:
-		l("No external ModMenu found, continuing")
 	l("Ready")
 	
 # This function is a helper to provide any file configurations to your mod
