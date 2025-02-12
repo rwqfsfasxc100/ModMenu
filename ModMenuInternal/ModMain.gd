@@ -35,9 +35,6 @@ func _init(modLoader = ModLoader):
 	else:
 		l("External ModMenu found, skipping")
 	
-	if not USING_EXTERNAL_MODMENU:
-		replaceScene("TitleScreen.tscn")
-	
 	# Loads translation file. For this example, the english translation file is used. 
 	if not USING_EXTERNAL_MODMENU:
 		updateTL("i18n/en.txt", "|")
@@ -46,6 +43,8 @@ func _init(modLoader = ModLoader):
 # At this point all AutoLoads are available and the game is loaded
 func _ready():
 	l("Readying")
+	if not USING_EXTERNAL_MODMENU:
+		replaceScene("TitleScreen.tscn")
 	l("Ready")
 	
 # This function is a helper to provide any file configurations to your mod

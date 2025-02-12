@@ -39,4 +39,5 @@ custom_constants/separation = 6
 [node name="MODMENU_CONFIG" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 margin_right = 472.0
 margin_bottom = 41.0
+disabled = true
 text = "MODMENU_SELF_CONFIG"
