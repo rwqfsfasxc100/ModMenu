@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://menu/sfx/PlaySoundsOnTheseButtons.tscn" type="PackedScene" id=2]
+[ext_resource path="res://enceladus/Upgrades/Preview.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SmoothScrollTo.tscn" type="PackedScene" id=4]
+
+[node name="CheckButton" type="CheckButton"]
+margin_right = 1226.0
+margin_bottom = 51.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+flat = true
+
+[node name="SmoothScrollTo" parent="." instance=ExtResource( 4 )]
+
+[node name="PlaySoundsOnTheseButtons" parent="." instance=ExtResource( 2 )]
+
+[node name="Preview" parent="." instance=ExtResource( 3 )]

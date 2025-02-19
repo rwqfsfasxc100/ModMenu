@@ -8,7 +8,7 @@
 [ext_resource path="res://menu/MenuFontAudiowide.tres" type="DynamicFont" id=6]
 [ext_resource path="res://menu/PlatformLink.gd" type="Script" id=7]
 [ext_resource path="res://hud/EIME.theme" type="Theme" id=8]
-[ext_resource path="res://ModMenu/menu/ModsTab.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ModMenu/menu/ModsList.tscn" type="PackedScene" id=10]
 [ext_resource path="res://hud/TabHintContainer.tscn" type="PackedScene" id=24]
 
 [node name="ModMenuLayer" type="Popup"]
@@ -26,6 +26,10 @@ script = ExtResource( 2 )
 [node name="PlaySoundsOnTheseButtons" parent="." instance=ExtResource( 3 )]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.03
+anchor_top = 0.02
+anchor_right = 0.03
+anchor_bottom = 0.02
 margin_right = 1200.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 800, 720 )
@@ -82,7 +86,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MODMENU_TAB_MODS" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl" instance=ExtResource( 9 )]
+[node name="MODMENU_TAB_MODS" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl" instance=ExtResource( 10 )]
 
 [node name="MODMENU_TAB_INFO" type="Tabs" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl"]
 visible = false

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ModMenu/menu/buttons/ConfigIcon.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://ModMenu/menu/ToggleIconConfig.png-c8cc2634ce50cfa3ae562410f54c4008.stex"
+
+[node name="Sprite" type="Sprite"]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 1 )
+script = ExtResource( 1 )

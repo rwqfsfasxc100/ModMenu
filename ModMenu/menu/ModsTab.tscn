@@ -2,7 +2,7 @@
 
 [ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=1]
 
-[node name="MODMENU_TAB_MODS" type="Tabs"]
+[node name="MODMENU_TAB_CONFIG" type="Tabs"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
@@ -20,6 +20,11 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.0
+margin_right = 2.0
+margin_bottom = -2.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
 custom_constants/margin_right = 0
 custom_constants/margin_top = 16
 custom_constants/margin_left = 0
@@ -27,7 +32,7 @@ custom_constants/margin_bottom = 48
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 margin_top = 16.0
-margin_right = 1278.0
+margin_right = 1280.0
 margin_bottom = 621.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
@@ -39,4 +44,5 @@ custom_constants/separation = 6
 [node name="MODMENU_CONFIG" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 margin_right = 472.0
 margin_bottom = 41.0
+disabled = true
 text = "MODMENU_SELF_CONFIG"

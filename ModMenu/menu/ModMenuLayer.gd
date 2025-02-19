@@ -10,12 +10,9 @@ func _on_resize():
 		rect_position = (viewportSize - size) / 2
 
 func _on_Save_pressed():
-	Settings.saveModMenuToFile()
 	Settings.restartGame()
 
 func cancel():
-	Settings.loadModMenuFromFile()
-	Settings.saveModMenuToFile()
 	hide()
 	refocus()
 	
@@ -41,5 +38,4 @@ func _on_ModMenu_pressed():
 
 
 func _on_ModMenuLayer_about_to_show():
-	Settings.saveModMenuToFile()
 	lastFocus = get_focus_owner()

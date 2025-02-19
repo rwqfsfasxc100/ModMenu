@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ModMenu/menu/buttons/AssignConfig.gd" type="Script" id=1]
+
+[node name="Config" type="Button"]
+margin_left = 831.0
+margin_right = 896.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 65, 65 )
+hint_tooltip = "Opens mod configuration window"
+flat = true
+script = ExtResource( 1 )
