@@ -1,5 +1,8 @@
 # ModMenu
-ModMenu handler for ΔV: Rings of Saturn
+Mod Menu for ΔV: Rings of Saturn
 
 # Usage
-This repository contains two separate versions of the mod menu: a standalone and internal version. The only difference between the two is the internal version has an additional check for if the standalone version is installed, where it will disable itself to prevent a duplicated button. There currently is no check for other internal mod menu instances yet, so it is recommended to have it installed if more than one mod using the internal modmain until capabilities to check for mod internals has been figured out.
+This Mod Menu provides a user interface to display the mods currently installed to the game, information surrounding them including load priority and mod version, as well as stuff that has been provided by the author, and handling for configurations if provided. Mods also have the added ability to provide links to certain resources that they would find useful to the user, such as mod repositories and downloads, a Discord thread for the mod, and other content that is provided. Controllers are fully supported too!
+
+# Mod Support
+For anyone looking to implement features compatible with this mod menu into their mod, please check the documentation on the wiki for a guide
