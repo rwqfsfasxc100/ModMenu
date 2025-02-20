@@ -6,3 +6,6 @@ This Mod Menu provides a user interface to display the mods currently installed 
 
 # Mod Support
 For anyone looking to implement features compatible with this mod menu into their mod, please check the documentation on the wiki for a guide
+
+If you're looking to add just a mod manifest for the basic information about a mod, check here: https://github.com/rwqfsfasxc100/ModMenu/wiki/Folder-Structure-&-Mod-Manifest
+If you're looking to add a configuration menu, check here: https://github.com/rwqfsfasxc100/ModMenu/wiki/Implement-the-Compatibility-Button
