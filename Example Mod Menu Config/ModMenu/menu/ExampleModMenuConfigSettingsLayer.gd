@@ -38,10 +38,10 @@ func _unhandled_input(event):
 var lastFocus = null
 #
 #
-func _on_Example_Mod_Menu_Config_SettingsLayer_about_to_show():
-	Settings.saveExample_Mod_Menu_Config_ToFile()
-	lastFocus = get_focus_owner()
-
-
 func _on_Example_Mod_Menu_Config_pressed():
 	popup_centered()
+
+
+func _on_Example_Mod_Menu_ConfigMenu_about_to_show():
+	Settings.saveExample_Mod_Menu_Config_ToFile()
+	lastFocus = get_focus_owner()
