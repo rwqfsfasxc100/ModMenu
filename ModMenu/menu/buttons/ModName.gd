@@ -8,4 +8,4 @@ func _ready():
 func writeVars():
 		
 	text = modData[0]
-	hint_tooltip = "Zip file: " + modData[1]
+	hint_tooltip = "ZIP: " + modData[1]

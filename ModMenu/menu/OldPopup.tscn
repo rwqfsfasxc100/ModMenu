@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://menu/TabsWithGamepadControl.gd" type="Script" id=1]
+[ext_resource path="res://ModMenu/menu/buttons/DescriptionText.gd" type="Script" id=2]
+[ext_resource path="res://ModMenu/menu/buttons/DescriptionAlign.gd" type="Script" id=3]
+[ext_resource path="res://ModMenu/menu/buttons/Description.gd" type="Script" id=4]
+[ext_resource path="res://menu/PanelWithHugeShadow.tres" type="StyleBox" id=5]
+[ext_resource path="res://hud/TabHintContainer.tscn" type="PackedScene" id=6]
+
+[node name="Popup" type="Popup"]
+margin_bottom = 600.0
+script = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+rect_min_size = Vector2( 400, 360 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 3 )
+
+[node name="TabHintContainer" parent="CenterContainer" instance=ExtResource( 6 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 716.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 716, 360 )
+size_flags_horizontal = 4
+
+[node name="TabsWithGamepadControl" type="TabContainer" parent="CenterContainer/TabHintContainer"]
+show_behind_parent = true
+margin_right = 716.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 600 )
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 5 )
+use_hidden_tabs_for_min_size = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MODMENU_DESCRIPTOR_TAG" type="MarginContainer" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 25.0
+margin_right = -1.0
+margin_bottom = -1.0
+custom_constants/margin_right = 0
+custom_constants/margin_top = 16
+custom_constants/margin_left = 0
+custom_constants/margin_bottom = 48
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_DESCRIPTOR_TAG"]
+margin_top = 16.0
+margin_right = 714.0
+margin_bottom = 526.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_DESCRIPTOR_TAG/ScrollContainer"]
+margin_right = 714.0
+margin_bottom = 485.0
+rect_min_size = Vector2( 714, 485 )
+custom_constants/separation = 6
+
+[node name="DescriptionText" type="Label" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_DESCRIPTOR_TAG/ScrollContainer/VBoxContainer"]
+margin_right = 714.0
+margin_bottom = 39.0
+autowrap = true
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_DESCRIPTOR_TAG/ScrollContainer/VBoxContainer"]
+margin_top = 45.0
+margin_right = 714.0
+margin_bottom = 45.0
+
+[connection signal="visibility_changed" from="CenterContainer" to="CenterContainer" method="_on_CenterContainer_visibility_changed"]

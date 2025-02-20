@@ -13,3 +13,53 @@ MODMENU_CREDITS|Credits: __hev, Za'krin Yoran
 MODMENU_GITHUB|ModMenu GitHub
 
 MODMENU_SELF_CONFIG|ModMenu Settings
+
+MODMENU_DESCRIPTION_PLACEHOLDER|This mod does not have a description. \n\nPlease check the webpage or thread where you obtained this mod for info, or ask the creator for a description.
+
+MODMENU_BUTTON_MOD_VERSION|Mod Version: 
+
+MODMENU_HINT_MOD_VERSION|The mod version of the installed mod. \nIf the autor provided a version within their mod, \nit can be useful to check for any updates.
+
+MODMENU_BUTTON_PRIORITY_VALUE|Mod Priority: 
+
+MODMENU_HINT_PRIORITY_VALUE|Mod priority determines when a mod is loaded in relation to other mods. \nSome mods may not be compatible with other mods, please check with \nthe authors of the mod(s) you're having issues with for a solution.
+
+MODMENU_HINT_MOD_ZIP|Zip file: 
+
+MODMENU_HINT_HAS_CONFIG|Opens the mod's configuration window
+
+MODMENU_HINT_NO_CONFIG|This mod does not have a configuration window
+
+MODMENU_GROUP_PLACEHOLDER|This mod is not a part of a feature group
+
+MODMENU_GITHUB_HOMEPAGE_PLACEHOLDER|This mod does not have a GitHub repository associated with it
+
+MODMENU_GITHUB_RELEASES_PLACEHOLDER|This mod does not have a dedicated releases page on it's GitHub
+
+MODMENU_DISCORD_PLACEHOLDER|This mod does not have a Discord thread associated with it
+
+MODMENU_NEXUS_PLACEHOLDER|This mod does not have a Nexusmods page associated with it
+
+MODMENU_DONATIONS_PLACEHOLDER|This mod does not have a donations page associated with it
+
+MODMENU_WIKI_PLACEHOLDER|This mod does not have a dedicated wiki page, Delta-V wiki or otherwise
+
+MODMENU_CUSTOM_LINK_PLACEHOLDER|This mod doesn't have a custom link setup
+
+MODMENU_CUSTOM_LINK_NAME_PLACEHOLDER|This mod doesn't have a custom link setup
+
+MODMENU_DESCRIPTOR_TAG|Mod Description
+
+MODMENU_LINKBUTTON_GITHUB|GitHub
+
+MODMENU_LINKBUTTON_GITHUB_RELEASES|GitHub Releases Page
+
+MODMENU_LINKBUTTON_DISCORD|Discord
+
+MODMENU_LINKBUTTON_NEXUS|Nexusmods
+
+MODMENU_LINKBUTTON_DONATIONS|Donate to the project
+
+MODMENU_LINKBUTTON_WIKI|Project Wiki
+
+MODMENU_MOD_DESCRIPTION|Mod Menu is a tool to provide info on and allow the configuration of the mods currently installed to the game. Check the wiki in the GitHub to learn more about this mod and how to implement it.\n\nCredit: \n__hev - Main writer \nZa'krin Yoran - ModMain template

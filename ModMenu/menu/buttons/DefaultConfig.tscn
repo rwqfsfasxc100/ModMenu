@@ -7,6 +7,6 @@ margin_left = 831.0
 margin_right = 896.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 65, 65 )
-hint_tooltip = "Opens mod configuration window"
+hint_tooltip = "MODMENU_HINT_NO_CONFIG"
 flat = true
 script = ExtResource( 1 )

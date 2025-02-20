@@ -6,5 +6,5 @@ func _ready():
 	writeVars()
 
 func writeVars():
-	var prio = modData[2]
-	text = prio
+	var ver = modData[4]
+	text = ver

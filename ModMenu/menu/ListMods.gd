@@ -66,12 +66,55 @@ func getMods():
 		Debug.l("Added %s to ModMenu list" % mod)
 
 var lineArray = []
+var manifestName = ""
+var manifestId = ""
+var manifestVersion = ""
+var manifestDescription = ""
+var manifestGroup = ""
+var github_homepage = ""
+var github_releases = ""
+var discord_thread = ""
+var nexus_page = ""
+var donations_page = ""
+var wiki_page = ""
+var custom_link = ""
+var custom_link_name = ""
 
-func load_file(modDir, zipDir):
+func load_file(modDir, zipDir, hasManifest, manifestDirectory):
+	manifestName = ""
+	manifestId = ""
+	manifestVersion = ""
+	manifestDescription = ""
+	manifestGroup = ""
+	github_homepage = ""
+	github_releases = ""
+	discord_thread = ""
+	nexus_page = ""
+	donations_page = ""
+	wiki_page = ""
+	custom_link = "MODMENU_CUSTOM_LINK_PLACEHOLDER"
+	custom_link_name = "MODMENU_CUSTOM_LINK_NAME_PLACEHOLDER"
 	var dirSplit = zipDir.split("/")
 	var dirSplitSize = dirSplit.size()
 	var fallbackDir = dirSplit[dirSplitSize - 1]
 	var f = File.new()
+	if hasManifest:
+		f.open(manifestDirectory, File.READ)
+		var manifestData = loadManifestFromFile(manifestDirectory)
+		manifestName = manifestData["package"]["name"]
+		manifestId = manifestData["package"]["id"]
+		manifestVersion = manifestData["package"]["version"]
+		manifestDescription = manifestData["package"]["description"]
+		manifestGroup = manifestData["package"]["group"]
+		github_homepage = manifestData["package"]["github_homepage"]
+		github_releases = manifestData["package"]["github_releases"]
+		discord_thread = manifestData["package"]["discord_thread"]
+		nexus_page = manifestData["package"]["nexus_page"]
+		donations_page = manifestData["package"]["donations_page"]
+		wiki_page = manifestData["package"]["wiki_page"]
+		custom_link = manifestData["package"]["custom_link"]
+		custom_link_name = manifestData["package"]["custom_link_name"]
+		f.close()
 	f.open(modDir, File.READ)
 	var modFolderSplit = modDir.split("/ModMain.gd")
 	var modFolderCount = modFolderSplit.size()
@@ -82,22 +125,28 @@ func load_file(modDir, zipDir):
 	var modName = ""
 	var prioCheck = 0
 	var modPrio = 0
+	var modVer = ""
+	var verCheck = 0
 	var content = f.get_as_text(true)
 	var modMainLines = content.split("\n")
 	for l in modMainLines:
-		Debug.l("Checking for MOD_NAME constant")
-		var modNameCheck = l.split("const MOD_NAME = ")
-		var modNameCheckSize = modNameCheck.size()
-		if modNameCheckSize >= 2:
-			var splitName = array_to_string(modNameCheck[1].split("\""))
-			while splitName.begins_with(" "):
-				var beginningSpaceRemover = splitName.split(" ")
-				splitName = array_to_string(beginningSpaceRemover[1])
-			while splitName.ends_with(" "):
-				var endSpaceRemover = splitName.split(" ")
-				splitName = array_to_string(endSpaceRemover[0])
-			nameCheck += 1
-			modName = splitName
+		if not hasManifest and manifestName == "":
+			Debug.l("Checking for MOD_NAME constant")
+			var modNameCheck = l.split("const MOD_NAME = ")
+			var modNameCheckSize = modNameCheck.size()
+			if modNameCheckSize >= 2:
+				var splitName = array_to_string(modNameCheck[1].split("\""))
+				while splitName.begins_with(" "):
+					var beginningSpaceRemover = splitName.split(" ")
+					splitName = array_to_string(beginningSpaceRemover[1])
+				while splitName.ends_with(" "):
+					var endSpaceRemover = splitName.split(" ")
+					splitName = array_to_string(endSpaceRemover[0])
+				nameCheck = 1
+				modName = splitName
+		else:
+			nameCheck = 1
+			modName = manifestName
 		Debug.l("Checking for MOD_PRIORITY constant")
 		var priorityCheck = l.split("const MOD_PRIORITY = ")
 		var priorityCheckSize = priorityCheck.size()
@@ -108,19 +157,65 @@ func load_file(modDir, zipDir):
 			modName = fallbackDir
 		if not prioCheck == 1:
 			modPrio = 0
+		Debug.l("Checking for MOD_VERSION constant")
+		var versionCheck = l.split("const MOD_VERSION = ")
+		var versionCheckSize = versionCheck.size()
+		if not manifestVersion == "":
+			verCheck = 1
+			modVer = manifestVersion
+		elif versionCheckSize >= 2 and not manifestVersion == modVer:
+			verCheck = 1
+			modVer = versionCheck[1]
+		else:
+			modVer = "unknown"
 	var prioStr = String(modPrio)
-	var compiledData = modName + "\n" + fallbackDir + "\n" + prioStr + "\n" + modFolder
+	var ver = ""
+	if verCheck == 1:
+		ver = modVer
+	else:
+		ver = "unknown"
+	var verData = String(ver)
+	if manifestDescription == null or manifestDescription == "":
+		manifestDescription = "MODMENU_DESCRIPTION_PLACEHOLDER"
+	if manifestGroup == null or manifestGroup == "":
+		manifestGroup = "MODMENU_GROUP_PLACEHOLDER"
+	if manifestId == null or manifestId == "":
+		manifestId = "MODMENU_ID_PLACEHOLDER"
+	if github_homepage == null or github_homepage == "":
+		github_homepage = "MODMENU_GITHUB_HOMEPAGE_PLACEHOLDER"
+	if github_releases == null or github_releases == "":
+		github_releases = "MODMENU_GITHUB_RELEASES_PLACEHOLDER"
+	if discord_thread == null or discord_thread == "":
+		discord_thread = "MODMENU_DISCORD_PLACEHOLDER"
+	if nexus_page == null or nexus_page == "":
+		nexus_page = "MODMENU_NEXUS_PLACEHOLDER"
+	if donations_page == null or donations_page == "":
+		donations_page = "MODMENU_DONATIONS_PLACEHOLDER"
+	if wiki_page == null or wiki_page == "":
+		wiki_page = "MODMENU_WIKI_PLACEHOLDER"
+	if custom_link == null or custom_link == "":
+		custom_link = "MODMENU_CUSTOM_LINK_PLACEHOLDER"
+	if custom_link_name == null or custom_link_name == "":
+		custom_link_name = "MODMENU_CUSTOM_LINK_NAME_PLACEHOLDER"
+	var compiledData = modName + "\n" + fallbackDir + "\n" + prioStr + "\n" + modFolder + "\n" + verData + "\n" + manifestDescription + "\n" + github_homepage + "\n" + github_releases + "\n" + discord_thread + "\n" + nexus_page + "\n" + donations_page + "\n" + wiki_page + "\n" + custom_link + "\n" + custom_link_name
 	return compiledData
 
 func getModMain(file):
+	var hasManifest = false
+	var manifestDir = ""
 	var gdunzip = load("res://vendor/gdunzip.gd").new()
 	gdunzip.load(file)
 	for filePath in gdunzip.files:
 		var fileEntry = filePath.get_file().to_lower()
+		if fileEntry.begins_with("mod") and fileEntry.ends_with(".manifest"):
+			var manifestGlobalPath = "res://" + filePath
+			Debug.l("ModMenu Loader Storage: Loading manifest file @ %s" % manifestGlobalPath)
+			hasManifest = true
+			manifestDir = manifestGlobalPath
 		if fileEntry.begins_with("modmain") and fileEntry.ends_with(".gd"):
 			var modGlobalPath = "res://" + filePath
-			Debug.l("ModMenu Loader Storage: Loading %s" % modGlobalPath)
-			var modData = load_file(modGlobalPath, file)
+			Debug.l("ModMenu Loader Storage: Loading ModMain file @ %s" % modGlobalPath)
+			var modData = load_file(modGlobalPath, file, hasManifest, manifestDir)
 			if modGlobalPath != null:
 				return modData
 			else:
@@ -171,7 +266,7 @@ func handleDisableMods():
 		if disabledModData != null:
 			var button = modButton.instance()
 			button.editor_description = disabledModData
-			button.set_name(splidDisabledModData[0] + "~" + splidDisabledModData[2] + "~" + splidDisabledModData[4])
+			button.set_name(splidDisabledModData[0] + "~" + splidDisabledModData[2] + "~" + splidDisabledModData[14])
 			add_child(button)
 			pass
 
@@ -199,3 +294,34 @@ func clearTempFolderCache():
 			continue
 	for m in cache:
 		dir.remove(m)
+
+
+var manifestConfig = {
+	"package":{
+		"id":null,
+		"name":null,
+		"version":"unknown",
+		"description":"MODMENU_DESCRIPTION_PLACEHOLDER",
+		"group":"",
+		"github_homepage":"",
+		"github_releases":"",
+		"discord_thread":"",
+		"nexus_page":"",
+		"donations_page":"",
+		"wiki_page":"",
+		"custom_link":"",
+		"custom_link_name":"",
+	}
+}
+var manifestFile = ConfigFile.new()
+
+
+func loadManifestFromFile(manifest):
+	var error = manifestFile.load(manifest)
+	if error != OK:
+		Debug.l("Derelict Delights: Error loading settings %s" % error)
+		return 
+	for section in manifestConfig:
+		for key in manifestConfig[section]:
+			manifestConfig[section][key] = manifestFile.get_value(section, key, manifestConfig[section][key])
+	return manifestConfig

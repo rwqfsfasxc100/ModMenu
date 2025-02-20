@@ -4,7 +4,7 @@ onready var nodeName = editor_description.split("\n")
 const emptyConfigButton = preload("res://ModMenu/menu/buttons/DefaultConfig.tscn")
 const configIcon = preload("res://ModMenu/menu/buttons/ConfigIcon.tscn")
 const toggleButton = preload("res://ModMenu/menu/buttons/ToggleButton.tscn")
-
+onready var modPath = "res://ModMenu/"
 var hasConfigFolder = false
 var isEnabled = true
 var buttonFile = []
@@ -19,8 +19,8 @@ func _ready():
 
 func configFolderCheck():
 	var dir = Directory.new()
-	if nodeName.size() >= 5:
-		if nodeName[4] == "disabled":
+	if nodeName.size() >= 6:
+		if nodeName[5] == "disabled":
 			isEnabled = false
 	if dir.open(buttonFolder) == OK:
 		hasConfigFolder = true
@@ -41,3 +41,4 @@ func addButtons():
 		else:
 			self.add_child(config)
 			self.get_node("Config").add_child(icon)
+

@@ -1,0 +1,15 @@
+[package]
+
+id="hev.ModMenu"
+name="Mod Menu"
+version="1.1.0"
+description="MODMENU_MOD_DESCRIPTION"
+group="qol"
+github_homepage="https://github.com/rwqfsfasxc100/ModMenu"
+github_releases="https://github.com/rwqfsfasxc100/ModMenu/releases"
+discord_thread="https://discord.com/channels/426287934870781952/1338689985737392229"
+nexus_page="https://www.nexusmods.com/dvringsofsaturn/mods/11"
+donations_page=""
+wiki_page="https://github.com/rwqfsfasxc100/ModMenu/wiki"
+custom_link=""
+custom_link_name=""
