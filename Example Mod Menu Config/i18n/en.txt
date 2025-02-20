@@ -1,1 +1,35 @@
 locale|en
+
+EXAMPLE_MAIN_TOGGLES|Main Toggles
+
+SETTINGS_ADD_EQUIPMENT|Add Equipment
+
+SETTINGS_ADD_EQUIPMENT_TOOLTIP|Adds new equipment
+
+SETTINGS_ADD_EVENTS|Add Events
+
+SETTINGS_ADD_EVENTS_TOOLTIP|Adds new events
+
+SETTINGS_ADD_AGENDAS|Add Agendas
+
+SETTINGS_ADD_AGENDAS_TOOLTIP|Adds new agendas
+
+EXAMPLE_EVENT_TOGGLES|Event Toggles
+
+SETTINGS_ADD_DERELICTS|Add New Derelicts
+
+SETTINGS_ADD_DERELICTS_TOOLTIP|Adds new derelict types to the game
+
+SETTINGS_ADD_NEW_NPCS|NPCs use more ships
+
+SETTINGS_ADD_NEW_NPCS_TOOLTIP|NPCs can now utilize a greater variety of ships
+
+SETTINGS_ADD_HABITAT_UNDER_CONSTRUCTION|Add the Habitat Under Construction
+
+SETTINGS_ADD_HABITAT_UNDER_CONSTRUCTION_TOOLTIP|Adds a new habitat to find in the rings
+
+EXAMPLE_AGENDA_TOGGLES|Agenda Toggles
+
+SETTINGS_ADD_HISTORIAN_AGENDA|Add Historian Agenda
+
+SETTINGS_ADD_HISTORIAN_AGENDA_TOOLTIP|Adds a new agenda - the historian - to the agenda pool
