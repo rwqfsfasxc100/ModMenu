@@ -33,12 +33,15 @@ func addButtons():
 	var icon = configIcon.instance()
 	var config = emptyConfigButton.instance()
 	self.add_child(toggle)
-	if isEnabled:
-		var modConfigButton = load(buttonDirConcat)
-		if not modConfigButton == null:
-			var button = modConfigButton.instance()
-			add_child(button)
-		else:
-			self.add_child(config)
-			self.get_node("Config").add_child(icon)
+	var buttonFolder = "res://" + nodeName[3] + "/ModMenu/button/"
+	var dirCheck = Directory.new()
+	if dirCheck.open(buttonFolder) == OK:
+		if isEnabled:
+			var modConfigButton = load(buttonDirConcat)
+			if not modConfigButton == null:
+				var button = modConfigButton.instance()
+				add_child(button)
+	else:
+		self.add_child(config)
+		self.get_node("Config").add_child(icon)
 

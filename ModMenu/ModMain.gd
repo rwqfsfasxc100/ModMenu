@@ -4,8 +4,8 @@ extends Node
 # Mods are loaded from lowest to highest priority, default is 0
 const MOD_PRIORITY = 2147483648
 # Name of the mod, used for writing to the logs
-const MOD_NAME = "Mod Menu v.1.1.0"
-const MOD_VERSION = "1.1.0"
+const MOD_NAME = "Mod Menu v.1.1.3"
+const MOD_VERSION = "1.1.3"
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
@@ -21,11 +21,13 @@ var modConfig = {}
 func _init(modLoader = ModLoader):
 	l("Initializing DLC")
 	
+	installScriptExtension("VersionLabel.gd")
 # Modify Settings.gd first so we can load config and DLC
 #	installScriptExtension("Settings.gd")
 #	loadSettings()
-	
 	loadDLC() # preloads DLC as things may break if this isn't done
+
+
 	
 	
 # Do stuff on ready
@@ -33,7 +35,6 @@ func _init(modLoader = ModLoader):
 func _ready():
 	l("Readying")
 	replaceScene("TitleScreen.tscn")
-#	l("mod path: " +modPath)
 	updateTL("i18n/en.txt", "|")
 	l("Ready")
 	

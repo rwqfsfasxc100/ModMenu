@@ -4,19 +4,10 @@ func _ready():
 	get_tree().get_root().connect("size_changed", self, "_on_resize")
 	
 func _on_resize():
-#	if visible:
-#		var viewportSize = get_parent().rect_size
-#		var size = rect_size
-#		rect_position = (viewportSize - size) / 2
-		var windowRes = Settings.getViewportSize()
-		var windowX = windowRes.x
-		var windowY = windowRes.y
-		var windowSizeX = 800
-		var windowSizeY = 750
-		var setXOffset = (windowX-windowSizeX)/2
-		var setYOffset = (windowY-windowSizeY)/2
-		margin_left = setXOffset
-		margin_top = setYOffset
+	if visible:
+		var viewportSize = get_parent().rect_size
+		var size = rect_size
+		rect_position = (viewportSize - size) / 2
 
 func _on_Save_pressed():
 	Settings.restartGame()

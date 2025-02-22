@@ -63,6 +63,15 @@ func getMods():
 			button.set_name(modTruncate[0])
 			button.text = modTruncate[0]
 		add_child(button)
+		var buttonFolder = "res://" + modDataSplit[3] + "/ModMenu/button/"
+		var dirCheck = Directory.new()
+		if dirCheck.open(buttonFolder) == OK:
+			var menuItem = load("res://" + modDataSplit[3] + "/ModMenu/menu/" + modDataSplit[3] + "Menu.tscn")
+			if not menuItem == null:
+				var initMenu = menuItem.instance()
+				initMenu.name = modDataSplit[3]
+				if get_parent().get_parent().get_parent().get_node("NoMargins").add_child(initMenu) == OK:
+					continue
 		Debug.l("Added %s to ModMenu list" % mod)
 
 var lineArray = []
@@ -250,12 +259,12 @@ func scanForDisabledMods(directory):
 	for mod in disabledMods:
 		var copyDir = Directory.new()
 		var folder = directory + "/" + mod
-		copyDir.copy(folder, tempFolderPath + mod)
+		copyDir.copy(folder, tempFolderPath + "disableModHandling/" + mod)
 		var removeDisabledTag = mod.split(".disabled")
 		var renamedMod = removeDisabledTag[0]
 		var moveDir = Directory.new()
-		moveDir.rename(tempFolderPath + mod, tempFolderPath + renamedMod)
-		disabledFolderContents.append(tempFolderPath + renamedMod)
+		moveDir.rename(tempFolderPath + "disableModHandling/" + mod, tempFolderPath + "disableModHandling/" + renamedMod)
+		disabledFolderContents.append(tempFolderPath + "disableModHandling/" + renamedMod)
 
 
 func handleDisableMods():

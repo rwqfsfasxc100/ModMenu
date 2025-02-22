@@ -44,12 +44,15 @@ func getMods():
 		var modNameDespaceSize = modNameDespace.size()
 		var modNamePatched = "".join(modNameDespace)
 		var nameFormatted = modNamePatched + "~" + modDataSplit[2]
-		var menuItem = load("res://" + modDataSplit[3] + "/ModMenu/menu/" + modDataSplit[3] + "Menu.tscn")
-		if not menuItem == null:
-			var initMenu = menuItem.instance()
-			initMenu.name = modDataSplit[3]
-			if self.add_child(initMenu) == OK:
-				continue
+		var buttonFolder = "res://" + modDataSplit[3] + "/ModMenu/button/"
+		var dirCheck = Directory.new()
+		if dirCheck.open(buttonFolder) == OK:
+			var menuItem = load("res://" + modDataSplit[3] + "/ModMenu/menu/" + modDataSplit[3] + "Menu.tscn")
+			if not menuItem == null:
+				var initMenu = menuItem.instance()
+				initMenu.name = modDataSplit[3]
+				if self.add_child(initMenu) == OK:
+					continue
 		Debug.l("Added %s to ModMenu list" % mod)
 		
 func load_file(modDir, zipDir):

@@ -19,10 +19,10 @@ func ifEnabled():
 	
 func handleIcons():
 	if isEnabled:
-		get_child(0).texture = load("res://ModMenu/menu/ToggleIconOn.png-525e367884a435cce378218d40856d67.stex")
+		get_child(0).texture = load("res://ModMenu/menu/ToggleIconOn.png.stex")
 		hint_tooltip = "This mod is currently enabled.\nTo disable this mod and still register here,\nadd the \".disabled\" extension to the filename.\nToggling in the mod menu currently is not possible."
 	else:
-		get_child(0).texture = load("res://ModMenu/menu/ToggleIconOff.png-a91ddf50a44be275cf7f069e12d2219a.stex")
+		get_child(0).texture = load("res://ModMenu/menu/ToggleIconOff.png.stex")
 		hint_tooltip = "This mod is currently disabled.\nTo re-enable this mod,\nremove the \".disabled\" extension from the filename.\nToggling in the mod menu currently is not possible."
 
 

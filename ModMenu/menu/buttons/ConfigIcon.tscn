@@ -4,7 +4,7 @@
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
-load_path = "res://ModMenu/menu/ToggleIconConfig.png-c8cc2634ce50cfa3ae562410f54c4008.stex"
+load_path = "res://ModMenu/menu/ToggleIconConfig.png.stex"
 
 [node name="Sprite" type="Sprite"]
 position = Vector2( 32, 32 )

@@ -4,7 +4,7 @@
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
-load_path = "res://ModMenu/menu/ToggleIconOn.png-525e367884a435cce378218d40856d67.stex"
+load_path = "res://ModMenu/menu/ToggleIconOn.png.stex"
 
 [node name="Toggle" type="Button"]
 margin_left = 904.0

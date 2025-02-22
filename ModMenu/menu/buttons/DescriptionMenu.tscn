@@ -19,34 +19,33 @@
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
-load_path = "res://ModMenu/menu/github.png-4c5ccffc8f3a3a744275f2c424db10bd.stex"
+load_path = "res://ModMenu/menu/github.png.stex"
 
 [sub_resource type="StreamTexture" id=4]
 flags = 4
-load_path = "res://ModMenu/menu/github.png-4c5ccffc8f3a3a744275f2c424db10bd.stex"
+load_path = "res://ModMenu/menu/github.png.stex"
 
 [sub_resource type="StreamTexture" id=2]
 flags = 4
-load_path = "res://ModMenu/menu/discord.png-5b17c478a88dcba751fcd76591d2b410.stex"
+load_path = "res://ModMenu/menu/discord.png.stex"
 
 [sub_resource type="StreamTexture" id=3]
 flags = 4
-load_path = "res://ModMenu/menu/nexus.png-a0f1f973920318c4b568628f2d05e3fb.stex"
+load_path = "res://ModMenu/menu/nexus.png.stex"
 
 [sub_resource type="StreamTexture" id=5]
 flags = 4
-load_path = "res://ModMenu/menu/donations.png-70ab48466bace46a5764f5771c9fafad.stex"
+load_path = "res://ModMenu/menu/donations.png.stex"
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
-load_path = "res://ModMenu/menu/wiki.png-3621d3d8e0bffdf783fc5f4dd31f70be.stex"
+load_path = "res://ModMenu/menu/wiki.png.stex"
 
 [sub_resource type="StreamTexture" id=7]
 flags = 4
-load_path = "res://ModMenu/menu/custom.png-96e8d4a09046f19d333a69651eb6d6da.stex"
+load_path = "res://ModMenu/menu/custom.png.stex"
 
 [node name="Popup" type="Popup"]
-visible = true
 margin_left = -400.0
 margin_right = 160.0
 margin_bottom = 750.0
