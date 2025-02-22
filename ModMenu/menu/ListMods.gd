@@ -89,7 +89,7 @@ var wiki_page = ""
 var custom_link = ""
 var custom_link_name = ""
 
-func load_file(modDir, zipDir, hasManifest, manifestDirectory):
+func load_file(modDir, zipDir, hasManifest, manifestDirectory, hasIcon, iconDir):
 	manifestName = ""
 	manifestId = ""
 	manifestVersion = ""
@@ -206,12 +206,18 @@ func load_file(modDir, zipDir, hasManifest, manifestDirectory):
 		custom_link = "MODMENU_CUSTOM_LINK_PLACEHOLDER"
 	if custom_link_name == null or custom_link_name == "":
 		custom_link_name = "MODMENU_CUSTOM_LINK_NAME_PLACEHOLDER"
-	var compiledData = modName + "\n" + fallbackDir + "\n" + prioStr + "\n" + modFolder + "\n" + verData + "\n" + manifestDescription + "\n" + github_homepage + "\n" + github_releases + "\n" + discord_thread + "\n" + nexus_page + "\n" + donations_page + "\n" + wiki_page + "\n" + custom_link + "\n" + custom_link_name
+	if hasIcon:
+		iconDir = iconDir
+	else:
+		iconDir = "empty"
+	var compiledData = modName + "\n" + fallbackDir + "\n" + prioStr + "\n" + modFolder + "\n" + verData + "\n" + manifestDescription + "\n" + github_homepage + "\n" + github_releases + "\n" + discord_thread + "\n" + nexus_page + "\n" + donations_page + "\n" + wiki_page + "\n" + custom_link + "\n" + custom_link_name + "\n" + iconDir
 	return compiledData
 
 func getModMain(file):
 	var hasManifest = false
 	var manifestDir = ""
+	var hasIcon = false
+	var iconDir = ""
 	var gdunzip = load("res://vendor/gdunzip.gd").new()
 	gdunzip.load(file)
 	for filePath in gdunzip.files:
@@ -221,10 +227,15 @@ func getModMain(file):
 			Debug.l("ModMenu Loader Storage: Loading manifest file @ %s" % manifestGlobalPath)
 			hasManifest = true
 			manifestDir = manifestGlobalPath
+		if fileEntry.begins_with("icon") and fileEntry.ends_with(".stex"):
+			var iconGlobalPath = "res://" + filePath
+			Debug.l("ModMenu Loader Storage: Loading manifest file @ %s" % iconGlobalPath)
+			hasIcon = true
+			iconDir = iconGlobalPath
 		if fileEntry.begins_with("modmain") and fileEntry.ends_with(".gd"):
 			var modGlobalPath = "res://" + filePath
 			Debug.l("ModMenu Loader Storage: Loading ModMain file @ %s" % modGlobalPath)
-			var modData = load_file(modGlobalPath, file, hasManifest, manifestDir)
+			var modData = load_file(modGlobalPath, file, hasManifest, manifestDir, hasIcon, iconDir)
 			if modGlobalPath != null:
 				return modData
 			else:
@@ -275,7 +286,7 @@ func handleDisableMods():
 		if disabledModData != null:
 			var button = modButton.instance()
 			button.editor_description = disabledModData
-			button.set_name(splidDisabledModData[0] + "~" + splidDisabledModData[2] + "~" + splidDisabledModData[14])
+			button.set_name(splidDisabledModData[0] + "~" + splidDisabledModData[2] + "~" + splidDisabledModData[15])
 			add_child(button)
 			pass
 

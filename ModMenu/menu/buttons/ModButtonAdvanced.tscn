@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ModMenu/menu/buttons/ModButtonAdvanced.gd" type="Script" id=1]
 [ext_resource path="res://hud/TNTRL-theme.tres" type="Theme" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ModMenu/menu/buttons/ModName.gd" type="Script" id=6]
 [ext_resource path="res://ModMenu/menu/buttons/ModVersion.gd" type="Script" id=7]
 [ext_resource path="res://SmoothScrollTo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ModMenu/menu/buttons/Icon.gd" type="Script" id=9]
 [ext_resource path="res://ModMenu/menu/buttons/DescriptionMenu.tscn" type="PackedScene" id=14]
 
 [sub_resource type="StreamTexture" id=1]
@@ -30,10 +31,12 @@ margin_right = 65.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 65, 65 )
 
-[node name="Sprite" type="Sprite" parent="VBoxContainer"]
+[node name="Icon" type="Sprite" parent="VBoxContainer"]
 scale = Vector2( 0.5, 0.5 )
 texture = SubResource( 1 )
 centered = false
+offset = Vector2( 8, 1 )
+script = ExtResource( 9 )
 
 [node name="DerelictDelightsMenu" parent="." instance=ExtResource( 14 )]
 margin_left = 0.0
