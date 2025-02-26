@@ -23,8 +23,8 @@ func _init(modLoader = ModLoader):
 	
 	installScriptExtension("VersionLabel.gd")
 # Modify Settings.gd first so we can load config and DLC
-#	installScriptExtension("Settings.gd")
-#	loadSettings()
+	installScriptExtension("Settings.gd")
+	loadSettings()
 	loadDLC() # preloads DLC as things may break if this isn't done
 
 
@@ -44,9 +44,9 @@ func _ready():
 func loadSettings():
 	l(MOD_NAME + ": Loading mod settings")
 	var settings = load("res://Settings.gd").new()
-	settings.loadExampleFromFile()
-	settings.saveExampleToFile()
-	modConfig = settings.ExampleConfig
+	settings.loadModMenuFromFile()
+	settings.saveModMenuToFile()
+	modConfig = settings.ModMenu
 	l(MOD_NAME + ": Current settings: %s" % modConfig)
 	settings.queue_free()
 	l(MOD_NAME + ": Finished loading settings")

@@ -7,5 +7,5 @@ func _ready():
 
 func writeVars():
 		
-	text = modData[0]
+	get_node("Label").text = modData[0]
 	hint_tooltip = modData[0] + "\nZIP: " + modData[1]

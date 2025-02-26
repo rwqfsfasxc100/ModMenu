@@ -2,7 +2,7 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://ModMenu/menu/nexus.png.stex"
+path="res://.import/nexus.png-a0f1f973920318c4b568628f2d05e3fb.stex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +10,7 @@ metadata={
 [deps]
 
 source_file="res://ModMenu/menu/nexus.png"
-dest_files=[ "res://ModMenu/menu/nexus.png.stex" ]
+dest_files=[ "res://.import/nexus.png-a0f1f973920318c4b568628f2d05e3fb.stex" ]
 
 [params]
 

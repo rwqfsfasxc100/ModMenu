@@ -2,7 +2,7 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://ModMenu/menu/discord.png.stex"
+path="res://.import/discord.png-5b17c478a88dcba751fcd76591d2b410.stex"
 metadata={
 "vram_texture": false
 }
@@ -10,7 +10,7 @@ metadata={
 [deps]
 
 source_file="res://ModMenu/menu/discord.png"
-dest_files=[ "res://ModMenu/menu/discord.png.stex" ]
+dest_files=[ "res://.import/discord.png-5b17c478a88dcba751fcd76591d2b410.stex" ]
 
 [params]
 

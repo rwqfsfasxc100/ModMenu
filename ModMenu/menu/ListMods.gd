@@ -3,7 +3,8 @@ extends Node
 const modButton = preload("res://ModMenu/menu/buttons/ModButtonAdvanced.tscn")
 
 var modDependancy = []
-var tempFolderPath = "user://.DVModMenuTemp/"
+var tempFolderPath = "user://.Mod_Menu_Cache/"
+var tempModPath = "disabled_mod_cache/"
 var hasModMenuTemp = false
 var disabledMods = []
 var disabledFolderContents = []
@@ -140,7 +141,6 @@ func load_file(modDir, zipDir, hasManifest, manifestDirectory, hasIcon, iconDir)
 	var modMainLines = content.split("\n")
 	for l in modMainLines:
 		if not hasManifest and manifestName == "":
-			Debug.l("Checking for MOD_NAME constant")
 			var modNameCheck = l.split("const MOD_NAME = ")
 			var modNameCheckSize = modNameCheck.size()
 			if modNameCheckSize >= 2:
@@ -156,7 +156,6 @@ func load_file(modDir, zipDir, hasManifest, manifestDirectory, hasIcon, iconDir)
 		else:
 			nameCheck = 1
 			modName = manifestName
-		Debug.l("Checking for MOD_PRIORITY constant")
 		var priorityCheck = l.split("const MOD_PRIORITY = ")
 		var priorityCheckSize = priorityCheck.size()
 		if priorityCheckSize >= 2:
@@ -166,7 +165,6 @@ func load_file(modDir, zipDir, hasManifest, manifestDirectory, hasIcon, iconDir)
 			modName = fallbackDir
 		if not prioCheck == 1:
 			modPrio = 0
-		Debug.l("Checking for MOD_VERSION constant")
 		var versionCheck = l.split("const MOD_VERSION = ")
 		var versionCheckSize = versionCheck.size()
 		if not manifestVersion == "":
@@ -244,7 +242,7 @@ func getModMain(file):
 func checkTempFolderExists(): 
 	var directory = Directory.new()
 	if directory.dir_exists(tempFolderPath):
-		Debug.l("Temp directory exists")
+		Debug.l("Temp mod menu directory exists")
 	else:
 		var error_code = directory.make_dir_recursive(tempFolderPath)
 		if error_code != OK:
@@ -266,16 +264,23 @@ func scanForDisabledMods(directory):
 			break
 		if dir.current_is_dir():
 			continue
-			
+	
+	var tempModDir = Directory.new()
+	if tempModDir.dir_exists(tempFolderPath + tempModPath):
+		Debug.l("Temp directory exists")
+	else:
+		var error_code = tempModDir.make_dir_recursive(tempFolderPath + tempModPath)
+		if error_code != OK:
+			Debug.l("Failed to make temp folder")
 	for mod in disabledMods:
 		var copyDir = Directory.new()
 		var folder = directory + "/" + mod
-		copyDir.copy(folder, tempFolderPath + "disableModHandling/" + mod)
+		copyDir.copy(folder, tempFolderPath  + tempModPath + mod)
 		var removeDisabledTag = mod.split(".disabled")
 		var renamedMod = removeDisabledTag[0]
 		var moveDir = Directory.new()
-		moveDir.rename(tempFolderPath + "disableModHandling/" + mod, tempFolderPath + "disableModHandling/" + renamedMod)
-		disabledFolderContents.append(tempFolderPath + "disableModHandling/" + renamedMod)
+		moveDir.rename(tempFolderPath + tempModPath + mod, tempFolderPath + tempModPath + renamedMod)
+		disabledFolderContents.append(tempFolderPath + tempModPath + renamedMod)
 
 
 func handleDisableMods():
@@ -299,7 +304,7 @@ func array_to_string(arr: Array) -> String:
 
 func clearTempFolderCache():
 	var dir = Directory.new()
-	dir.open(tempFolderPath)
+	dir.open(tempFolderPath + tempModPath)
 	var cache = []
 	var dirName = dir.get_current_dir()
 	dir.list_dir_begin(true)
@@ -313,7 +318,8 @@ func clearTempFolderCache():
 		if dir.current_is_dir():
 			continue
 	for m in cache:
-		dir.remove(m)
+		if not m == "":
+			dir.remove(m)
 
 
 var manifestConfig = {

@@ -63,3 +63,41 @@ MODMENU_LINKBUTTON_DONATIONS|Donate to the project
 MODMENU_LINKBUTTON_WIKI|Project Wiki
 
 MODMENU_MOD_DESCRIPTION|Mod Menu is a tool to provide info on and allow the configuration of the mods currently installed to the game. Check the wiki in the GitHub to learn more about this mod and how to implement it.\n\nCredit: \n__hev - Main writer \nZa'krin Yoran - ModMain template
+
+MOD_NAME_MISSING|ERROR: MOD NAME MISSING!
+
+MODMENU_MAIN_TOGGLES|Main Mod Menu Options
+
+MODMENU_SETTINGS_CHECK_UPDATE_EVERY|Fetch latest mod version every:
+
+MODMENU_SETTINGS_UPDATE_EVERY_TOOLTIP|How long the mod menu will wait before checking a mod's update status. \nCurrently is only able to get updates for mods that state the Github releases page.
+
+MODMENU_SETTINGS_UPDATE_EVERY_0|1 Hour
+
+MODMENU_SETTINGS_UPDATE_EVERY_1|4 Hours
+
+MODMENU_SETTINGS_UPDATE_EVERY_2|12 Hours
+
+MODMENU_SETTINGS_UPDATE_EVERY_3|1 Day
+
+MODMENU_SETTINGS_UPDATE_EVERY_4|3 Days
+
+MODMENU_SETTINGS_UPDATE_EVERY_5|7 Days
+
+MODMENU_SETTINGS_UPDATE_EVERY_6|14 Days
+
+MODMENU_SETTINGS_UPDATE_EVERY_7|Never
+
+MODMENU_SETTINGS_UPDATE_NOW|Force Fetch Mod Updates
+
+MODMENU_SETTINGS_UPDATE_NOW_TOOLTIP|Forces the update checker to run and resets the automatic checker timer
+
+MODMENU_SETTINGS_UPDATE_NOW_TOOLTIP_BLOCKED|Can only be used once per session to prevent lag issues \nPlease restart the game if you want to perform a forced update check again
+
+MODMENU_SETTINGS_FETCH_PRE_RELEASES|Consider Fetching Pre-Release Versions?
+
+MODMENU_SETTINGS_FETCH_PRE_RELEASES_TOOLTIP|Whether the mod menu considers releases marked as pre-releases as update candidates
+
+MODMENU_SETTINGS_PURGE_CONFIG_FILE|Purge Mod Menu Cache Data
+
+MODMENU_SETTINGS_PURGE_CONFIG_FILE_TOOLTIP|Resets all Mod Menu cached data, including settings and other related data. \nDoing this will force the update checker to run the next time the game is run. \n\nThis operation only performs when these settings are saved, cancelling will avoid making the change.
