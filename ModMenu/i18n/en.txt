@@ -101,3 +101,5 @@ MODMENU_SETTINGS_FETCH_PRE_RELEASES_TOOLTIP|Whether the mod menu considers relea
 MODMENU_SETTINGS_PURGE_CONFIG_FILE|Purge Mod Menu Cache Data
 
 MODMENU_SETTINGS_PURGE_CONFIG_FILE_TOOLTIP|Resets all Mod Menu cached data, including settings and other related data. \nDoing this will force the update checker to run the next time the game is run. \n\nThis operation only performs when these settings are saved, cancelling will avoid making the change.
+
+DOES_NOT_EXIST|If you're seeing this, something went really wrong D:
