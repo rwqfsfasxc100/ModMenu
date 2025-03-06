@@ -1,32 +1,12 @@
 extends Label
 
-var modDependancy = []
 var modCount = 0
 
-func _ready():
-	grow_horizontal = 0
-	getModCount()
+func modCounter():
+	var modMenuContainer = get_parent().get_parent().get_parent().get_parent().get_node("TabsWithGamepadControl/MODMENU_TAB_MODS/MarginContainer/ScrollContainer/VBoxContainer")
+	modCount = modMenuContainer.get_child_count()
 	self.text = "%s Mod(s) Installed" % modCount
-	
-func getModCount():
-	var gameInstallDirectory = OS.get_executable_path().get_base_dir()
-	if OS.get_name() == "OSX":
-		gameInstallDirectory = gameInstallDirectory.get_base_dir().get_base_dir().get_base_dir()
-	var modPathPrefix = gameInstallDirectory.plus_file("mods")
-	var dir = Directory.new()
-	dir.open(modPathPrefix)
-	var dirName = dir.get_current_dir()
-	dir.list_dir_begin(true)
-	while true:
-		var fileName = dir.get_next()
-		dirName = dir.get_current_dir()
-		Debug.l(fileName)
-		if fileName == "":
-			break
-		if dir.current_is_dir():
-			continue
-		modDependancy.append(fileName)
-		
-	for mod in modDependancy:
-		modCount += 1
 
+func _on_ModCount_visibility_changed():
+	grow_horizontal = 0
+	modCounter()

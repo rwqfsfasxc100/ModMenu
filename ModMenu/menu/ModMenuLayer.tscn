@@ -111,5 +111,6 @@ margin_right = -1.0
 margin_bottom = -1.0
 
 [connection signal="about_to_show" from="." to="." method="_on_ModMenuLayer_about_to_show"]
+[connection signal="visibility_changed" from="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/ModCount" to="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/ModCount" method="_on_ModCount_visibility_changed"]
 
 [editable path="CenterContainer/TabHintContainer"]

@@ -6,5 +6,5 @@ func _ready():
 	writeVars()
 
 func writeVars():
-	var prio = modData[2]
+	var prio = TranslationServer.translate("MODMENU_BUTTON_PRIORITY_VALUE") + modData[2]
 	text = prio

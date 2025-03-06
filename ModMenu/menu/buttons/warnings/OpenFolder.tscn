@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ModMenu/menu/buttons/warnings/OpenModsFolder.gd" type="Script" id=1]
+
+[node name="OpenFolder" type="Button"]
+margin_top = 359.0
+margin_right = 714.0
+margin_bottom = 400.0
+hint_tooltip = "MODMENU_OPEN_FOLDER_TOOLTIP"
+text = "MODMENU_OPEN_FOLDER"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_OpenFolder_pressed"]
+[connection signal="visibility_changed" from="." to="." method="_on_OpenFolder_visibility_changed"]

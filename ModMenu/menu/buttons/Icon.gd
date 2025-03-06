@@ -8,5 +8,5 @@ func _ready():
 	if not iconDir == "empty":
 		self.texture = load(iconDir)
 	else:
-		self.texture = load("res://ModMenu/menu/missing_icon.png.stex")
+		self.texture = load("res://ModMenu/menu/icons/missing_icon.png.stex")
 

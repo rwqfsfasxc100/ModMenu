@@ -61,14 +61,17 @@ margin_bottom = 43.0
 size_flags_vertical = 3
 
 [node name="Right" parent="NoMargins/CenterContainer/TabHintContainer/MarginContainer/HBoxContainer" index="0"]
+visible = false
 margin_bottom = 39.0
 
 [node name="Label" parent="NoMargins/CenterContainer/TabHintContainer/MarginContainer/HBoxContainer" index="1"]
+margin_left = 0.0
 margin_top = 0.0
-margin_right = 1150.0
+margin_right = 1230.0
 margin_bottom = 39.0
 
 [node name="Left" parent="NoMargins/CenterContainer/TabHintContainer/MarginContainer/HBoxContainer" index="2"]
+visible = false
 margin_left = 1150.0
 margin_right = 1230.0
 margin_bottom = 39.0
@@ -121,7 +124,7 @@ script = ExtResource( 3 )
 margin_top = 47.0
 margin_right = 1068.0
 margin_bottom = 88.0
-hint_tooltip = "MODMENU_SETTINGS_UPDATE_EVERY_TOOLTIP"
+hint_tooltip = "MODMENU_SETTINGS_UPDATE_PREFS_TOOLTIP"
 align = 2
 script = ExtResource( 2 )
 
@@ -129,16 +132,10 @@ script = ExtResource( 2 )
 margin_left = 20.0
 margin_right = 628.0
 margin_bottom = 39.0
-text = "MODMENU_SETTINGS_CHECK_UPDATE_EVERY"
-
-[node name="updateNow" type="Button" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
-margin_top = 94.0
-margin_right = 1068.0
-margin_bottom = 135.0
-hint_tooltip = "MODMENU_SETTINGS_UPDATE_NOW_TOOLTIP"
-text = "MODMENU_SETTINGS_UPDATE_NOW"
+text = "MODMENU_SETTINGS_UPDATE_PREFS"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer"]
+visible = false
 margin_top = 16.0
 margin_right = 1068.0
 margin_bottom = 617.0

@@ -11,12 +11,10 @@ const MOD_MENU_VERSION = "1.0.0"
 var ModMenu = {
 	"mainSettings":{
 		"fetchPreReleases":false,
-		"updateCheckerDelay":4
+		"updatePrefs":2
 	},
 	"debugStuffNotForTheSeeingEyes":{
-		"forceUpdateCheck":0,
-		"lastUpdateCheckPerformedAt":"2000-01-01T12:00:00",
-		"purgeData":0
+		"":""
 	},
 }
 

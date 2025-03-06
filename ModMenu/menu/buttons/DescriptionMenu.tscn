@@ -1,49 +1,49 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://ModMenu/menu/buttons/Description.gd" type="Script" id=1]
-[ext_resource path="res://ModMenu/menu/buttons/DescriptionText.gd" type="Script" id=2]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/Description.gd" type="Script" id=1]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/DescriptionText.gd" type="Script" id=2]
 [ext_resource path="res://enceladus/ScrollWithAnalog.gd" type="Script" id=3]
 [ext_resource path="res://hud/TabHintContainer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ModMenu/menu/buttons/HandleGithub.gd" type="Script" id=5]
-[ext_resource path="res://ModMenu/menu/buttons/HandleDiscord.gd" type="Script" id=6]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleGithub.gd" type="Script" id=5]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleDiscord.gd" type="Script" id=6]
 [ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=7]
 [ext_resource path="res://menu/PanelWithHugeShadow.tres" type="StyleBox" id=8]
-[ext_resource path="res://ModMenu/menu/buttons/HandleNexus.gd" type="Script" id=9]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleNexus.gd" type="Script" id=9]
 [ext_resource path="res://menu/TabsWithGamepadControl.gd" type="Script" id=10]
 [ext_resource path="res://menu/sfx/PlaySoundsOnTheseButtons.tscn" type="PackedScene" id=11]
-[ext_resource path="res://ModMenu/menu/buttons/DescriptionAlign.gd" type="Script" id=12]
-[ext_resource path="res://ModMenu/menu/buttons/HandleGithubReleases.gd" type="Script" id=13]
-[ext_resource path="res://ModMenu/menu/buttons/HandleWiki.gd" type="Script" id=14]
-[ext_resource path="res://ModMenu/menu/buttons/HandleDonations.gd" type="Script" id=15]
-[ext_resource path="res://ModMenu/menu/buttons/HandleSpecial.gd" type="Script" id=16]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/DescriptionAlign.gd" type="Script" id=12]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleGithubReleases.gd" type="Script" id=13]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleWiki.gd" type="Script" id=14]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleDonations.gd" type="Script" id=15]
+[ext_resource path="res://ModMenu/menu/buttons/descriptions/HandleSpecial.gd" type="Script" id=16]
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
-load_path = "res://ModMenu/menu/github.png.stex"
+load_path = "res://ModMenu/menu/icons/github.png.stex"
 
 [sub_resource type="StreamTexture" id=4]
 flags = 4
-load_path = "res://ModMenu/menu/github.png.stex"
+load_path = "res://ModMenu/menu/icons/github.png.stex"
 
 [sub_resource type="StreamTexture" id=2]
 flags = 4
-load_path = "res://ModMenu/menu/discord.png.stex"
+load_path = "res://ModMenu/menu/icons/discord.png.stex"
 
 [sub_resource type="StreamTexture" id=3]
 flags = 4
-load_path = "res://ModMenu/menu/nexus.png.stex"
+load_path = "res://ModMenu/menu/icons/nexus.png.stex"
 
 [sub_resource type="StreamTexture" id=5]
 flags = 4
-load_path = "res://ModMenu/menu/donations.png.stex"
+load_path = "res://ModMenu/menu/icons/donations.png.stex"
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
-load_path = "res://ModMenu/menu/wiki.png.stex"
+load_path = "res://ModMenu/menu/icons/wiki.png.stex"
 
 [sub_resource type="StreamTexture" id=7]
 flags = 4
-load_path = "res://ModMenu/menu/custom.png.stex"
+load_path = "res://ModMenu/menu/icons/custom.png.stex"
 
 [node name="Popup" type="Popup"]
 margin_left = -400.0

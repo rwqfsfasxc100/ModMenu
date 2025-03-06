@@ -11,7 +11,9 @@ func _on_resize():
 
 func _on_Save_pressed():
 	Settings.saveModMenuToFile()
-	Settings.restartGame()
+	hide()
+	refocus()
+#	Settings.restartGame()
 
 func cancel():
 	Settings.loadModMenuFromFile()

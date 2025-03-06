@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ModMenu/menu/buttons/warnings/GithubUpdate.gd" type="Script" id=1]
+
+[node name="GithubUpdate" type="Button"]
+margin_top = 265.0
+margin_right = 714.0
+margin_bottom = 306.0
+hint_tooltip = "MODMENU_OPEN_GITHUB_RELEASES_TOOLTIP"
+text = "MODMENU_OPEN_GITHUB_RELEASES"
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_GithubUpdate_pressed"]
+[connection signal="visibility_changed" from="." to="." method="_on_GithubUpdate_visibility_changed"]

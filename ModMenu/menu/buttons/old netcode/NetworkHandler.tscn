@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ModMenu/menu/buttons/old netcode/NetworkHandler.gd" type="Script" id=1]
+[ext_resource path="res://ModMenu/menu/buttons/old netcode/ZipChecker.gd" type="Script" id=2]
+[ext_resource path="res://ModMenu/menu/buttons/old netcode/FetchRelease.gd" type="Script" id=3]
+[ext_resource path="res://ModMenu/menu/buttons/old netcode/GetAssetDownloadLink.gd" type="Script" id=4]
+[ext_resource path="res://ModMenu/menu/buttons/old netcode/GetLatestValidRelease.gd" type="Script" id=5]
+
+[node name="NetworkHandler" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="GetLatestValidRelease" type="HTTPRequest" parent="."]
+use_threads = true
+script = ExtResource( 5 )
+
+[node name="GetAssetDownloadLink" type="HTTPRequest" parent="GetLatestValidRelease"]
+use_threads = true
+script = ExtResource( 4 )
+
+[node name="FetchRelease" type="HTTPRequest" parent="GetLatestValidRelease/GetAssetDownloadLink"]
+use_threads = true
+script = ExtResource( 3 )
+
+[node name="ZipChecker" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[connection signal="request_completed" from="GetLatestValidRelease" to="GetLatestValidRelease" method="_on_GetLatestValidRelease_request_completed"]
+[connection signal="request_completed" from="GetLatestValidRelease/GetAssetDownloadLink" to="GetLatestValidRelease/GetAssetDownloadLink" method="_on_GetAssetDownloadLink_request_completed"]
+[connection signal="request_completed" from="GetLatestValidRelease/GetAssetDownloadLink/FetchRelease" to="GetLatestValidRelease/GetAssetDownloadLink/FetchRelease" method="_on_FetchRelease_request_completed"]

@@ -6,5 +6,5 @@ func _ready():
 	writeVars()
 
 func writeVars():
-	var ver = modData[4]
+	var ver = TranslationServer.translate("MODMENU_BUTTON_MOD_VERSION") + modData[4]
 	text = ver
