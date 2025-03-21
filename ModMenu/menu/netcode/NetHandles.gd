@@ -3,8 +3,8 @@ extends Node
 var Globals = preload("res://ModMenu/Globals.gd").new()
 
 var cacheExtension = ".modmenucache"
-var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/current_mod_caches/"
-var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/persistent_mod_caches/"
+var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/current_mod_caches/"
+var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
 var debugPrefix = "Mod Menu Update Checker: "
 
 func _ready():
@@ -25,7 +25,11 @@ func _ready():
 
 func startHandlingMods():
 	var maxMods = get_parent().get_node("VBoxContainer").get_child_count()
-	var validMods = get_parent().get_node("InstalledModsWithValidIDs").editor_description.split("\n")
+	var unvalidMods = get_parent().get_node("InstalledModsWithValidIDs").editor_description.split("\n")
+	var validMods = []
+	for m in unvalidMods:
+		if not m == "" or m == null:
+			validMods.append(m)
 	var modCount = validMods.size()
 	if modCount > maxMods:
 		return

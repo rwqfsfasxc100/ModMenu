@@ -1,0 +1,36 @@
+# File should be named conflicts.cfg to register mods as incompatible
+# File should be named dependancies.cfg to register mods as requirements
+
+{
+	# These numbers can be anything, just unique identifiers for the individual conflict/dependancy
+	"0": {
+		# this identifier is for an either/or situation, where various mods would satisfy the same requirement
+		# the word in the middle is irrelevant, just an identifier for the specific list, the ~| and |~ around the word is what really matters
+		# thanks @RJWaters on the Discord for the suggestion
+		"~|multiple|~": { 
+			# same as before, these numbers are just unique identifiers for the list
+			"0": {
+				"id": "hev.DerelictDelights",
+				"name": "Derelict Delights",
+				"zip": "DerelictDelights-2.0.7.zip",
+				"minVersion": "2.0.3",
+				"maxVersion": "2.0.7"
+			},
+			"1": {
+				"id": "hev.IndustriesOfEnceladus",
+				"name": "",
+				"zip": "IndustriesOfEnceladusRevamp.zip",
+				"minVersion": "",
+				"maxVersion": "2.1.1"
+			}
+		}
+	},
+	"1": {
+		# each value can be left blank to be satisfied by any of the other requirements, however at least one of the id, name, or zip values must be filled out
+		"id": "",
+		"name": "",
+		"zip": "YeetProtocol.zip",
+		"minVersion": "",
+		"maxVersion": ""
+	}
+}

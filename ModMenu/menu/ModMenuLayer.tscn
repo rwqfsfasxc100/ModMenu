@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ModMenu/menu/ModMenuLayer.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://menu/PanelWithHugeShadow.tres" type="StyleBox" id=4]
 [ext_resource path="res://menu/TabsWithGamepadControl.gd" type="Script" id=5]
 [ext_resource path="res://ModMenu/ModCount.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ModMenu/menu/ModsWithNotifications.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ModMenu/menu/ModsList.tscn" type="PackedScene" id=10]
 [ext_resource path="res://hud/TabHintContainer.tscn" type="PackedScene" id=24]
 
@@ -105,12 +106,17 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+grabFocusIfNone = true
 
 [node name="MODMENU_TAB_MODS" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl" instance=ExtResource( 10 )]
 margin_right = -1.0
 margin_bottom = -1.0
 
+[node name="MODMENU_TAB_NOTIFICATIONS" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl" instance=ExtResource( 7 )]
+visible = false
+
 [connection signal="about_to_show" from="." to="." method="_on_ModMenuLayer_about_to_show"]
+[connection signal="visibility_changed" from="." to="." method="_on_ModMenuLayer_visibility_changed"]
 [connection signal="visibility_changed" from="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/ModCount" to="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/ModCount" method="_on_ModCount_visibility_changed"]
 
 [editable path="CenterContainer/TabHintContainer"]

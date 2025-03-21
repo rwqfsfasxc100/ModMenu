@@ -1,7 +1,7 @@
 extends Label
 
 func _on_UpdateInfo_visibility_changed():
-	var updateDir = "user://.Mod_Menu_Cache/mod.updates"
+	var updateDir = "user://.Mod_Menu_Cache/updatecache/mod.updates"
 	var currentData = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().editor_description
 	var file = File.new()
 	file.open(updateDir, File.READ)

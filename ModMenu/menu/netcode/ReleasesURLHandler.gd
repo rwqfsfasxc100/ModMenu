@@ -3,14 +3,11 @@ extends HTTPRequest
 var Globals = preload("res://ModMenu/Globals.gd").new()
 
 var cacheExtension = ".modmenucache"
-var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/current_mod_caches/"
-var githubDataCache = "user://.Mod_Menu_Cache/github_cache/"
-var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/persistent_mod_caches/"
-var zipStore = "user://.Mod_Menu_Cache/downloaded_zips/"
+var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/current_mod_caches/"
+var githubDataCache = "user://.Mod_Menu_Cache/updatecache/github_cache/"
+var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
+var zipStore = "user://.Mod_Menu_Cache/updatecache/downloaded_zips/"
 var debugPrefix = "Mod Menu Update Checker: "
-
-onready var forceUpdateCheck = Settings.ModMenu["debugStuffNotForTheSeeingEyes"]["forceUpdateCheck"]
-#onready var forceUpdateCheck = false
 
 func start_process():
 	var releaseURL = ""
@@ -72,7 +69,7 @@ func checkIfAcceptable(n):
 	if n["draft"]:
 		return false
 	if n["prerelease"]:
-		if forceUpdateCheck:
+		if Settings.ModMenu["mainSettings"]["updaterOption"] == 1:
 			return true
 		else:
 			return false

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/Extensions.gd" type="Script" id=1]
+[ext_resource path="res://ModMenu/title/ButtonBeside.gd" type="Script" id=2]
+
+[node name="ButtonBeside" type="HBoxContainer"]
+margin_left = 68.0
+margin_top = 339.0
+margin_right = 512.0
+margin_bottom = 380.0
+script = ExtResource( 2 )
+
+[node name="Extensions" type="Button" parent="."]
+margin_right = 444.0
+margin_bottom = 41.0
+size_flags_horizontal = 3
+text = "MENU_DLC_CONFIG"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

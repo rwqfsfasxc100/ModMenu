@@ -22,7 +22,7 @@ MODMENU_HINT_MOD_VERSION|The mod version of the installed mod. \nIf the autor pr
 
 MODMENU_BUTTON_PRIORITY_VALUE|Mod Priority: 
 
-MODMENU_HINT_PRIORITY_VALUE|Mod priority determines when a mod is loaded in relation to other mods. \nSome mods may not be compatible with other mods, please check with \nthe authors of the mod(s) you're having issues with for a solution.
+MODMENU_HINT_PRIORITY_VALUE|Mod priority determines when it is loaded in relation to other mods. \nSome mods may not be compatible with others, please check with \nthe authors of the mod(s) you're having issues with for a solution.
 
 MODMENU_HINT_MOD_ZIP|Zip file: 
 
@@ -48,9 +48,13 @@ MODMENU_CUSTOM_LINK_PLACEHOLDER|This mod doesn't have a custom link setup
 
 MODMENU_CUSTOM_LINK_NAME_PLACEHOLDER|This mod doesn't have a custom link setup
 
+MODMENU_ID_LABEL|Mod ID: %s
+
 MODMENU_ID_PLACEHOLDER|This mod did not provide a mod ID
 
 MODMENU_MOD_ZIPFILE|Zip File: 
+
+MODMENU_MOD_ZIPFILE_FULL|Zip File Path: 
 
 MODMENU_DESCRIPTOR_TAG|Mod Description
 
@@ -72,7 +76,7 @@ MOD_NAME_MISSING|ERROR: MOD NAME MISSING!
 
 MODMENU_MAIN_TOGGLES|Main Mod Menu Options
 
-MODMENU_SETTINGS_FETCH_PRE_RELEASES|Consider Fetching Pre-Release Versions?
+MODMENU_SETTINGS_FETCH_PRE_RELEASES|Consider Pre-Release Versions
 
 MODMENU_SETTINGS_FETCH_PRE_RELEASES_TOOLTIP|Whether the mod menu considers releases marked as pre-releases as update candidates
 
@@ -105,3 +109,95 @@ MODMENU_SETTINGS_UPDATE_DOWNLOAD|Use downloaded zips
 MODMENU_SETTINGS_UPDATE_EVERYTHING|Use both GitHub and downloads
 
 MODMENU_THERE_ARE_UPDATES_TOOLTIP|This mod has available updates!
+
+MODMENU_MOD_COUNT|%s Mod(s) Installed
+
+MODMENU_SETTINGS_DISPLAY_INSTALLED|Show Installed Mods List
+
+MODMENU_SETTINGS_DISPLAY_INSTALLED_TOOLTIP|Displays a list of installed mods outside of the mod menu \n\nChanging these settings may require a restart
+
+MODMENU_SETTINGS_DISPLAY_LOCATION|Installed Mod List Position
+
+MODMENU_SETTINGS_DISPLAY_DLC|Top-Right (DLC List)
+
+MODMENU_SETTINGS_DISPLAY_NONE|Disabled
+
+MODMENU_DLCLIST_MODSEPARATOR|~~~~~ - MODS (%s Installed) - ~~~~~
+
+MODMENU_DLCLIST_DLCSEPARATOR|~~~~~ - DLC - ~~~~~
+
+MODMENU_SETTINGS_DISPLAY_TOOLTIPS|Top-Left
+
+MODMENU_TOOLTIPLIST_MODSEPARATOR|%s Mods Currently Installed:
+
+MODMENU_TITLE_X_UPDATES_AVAILABLE|%s mod(s) have available updates!
+
+MODMENU_TITLE_X_CONFLICTS|%s mod(s) have conflicts!
+
+MODMENU_TITLE_X_MISSING_DEPS|%s mod(s) are missing a dependancy!
+
+MODMENU_NOTIFICATIONS|Some mods need your attention!
+
+MODMENU_TAB_NOTIFICATIONS|Notifications
+
+MODMENU_NOTIFICATIONS_UPDATES|Out-of-date mods: %s
+
+MODMENU_NOTIFICATIONS_CONFLICTS|Mods with conflicts: %s
+
+MODMENU_NOTIFICATIONS_MISSING_DEPS|Mods without required mods: %s
+
+MODMENU_NOTIFICATIONS_LABEL_NONE|---- NONE ----
+
+MODMENU_SETTINGS_UPDATER|Updater Settings
+
+MODMENU_SETTINGS_UPDATER_NORMAL|Use standard releases
+
+MODMENU_SETTINGS_UPDATER_DISABLED|Disable update checking
+
+MODMENU_SETTINGS_ZIPDISPLAY_ZIP|Use Zip Filename Only
+
+MODMENU_SETTINGS_ZIPDISPLAY_PATH|Use Full Zip Path
+
+MODMENU_SETTINGS_ZIPDISPLAY_NONE|Don't Display Zip Info
+
+MODMENU_SETTINGS_ZIPLOCATION|Mod Tooltip Zip Information
+
+MODMENU_CONFLICT_NOTIFICATION_HEADER|Conflicting Mods
+
+MODMENU_CONFLICT_NOTIFICATION_TEXT|This mod has conflicts with other mods! \n\nThe following mods either need to be updated to a compatible version, or removed: \n\n%s
+
+MODMENU_CONFLICT_MOD_TEXT|%s has conflicts with: %s
+
+MODMENU_DEPS_NOTIFICATION_HEADER|Missing Dependancies
+
+MODMENU_DEPS_NOTIFICATION_TEXT|This mod has required dependancies that are not met! \n\nThe following mods need to be installed and on a supported version: \n\n%s
+
+MODMENU_DEPS_MOD_TEXT|%s requires the following mods to be installed: %s
+
+MODMENU_SETTINGS_DISPLAY_LIST_TOOLTIP|Which side the mod list will display on
+
+MODMENU_SETTINGS_ZIPDISPLAY_TOOLTIP|Whether the tooltip should display just the zip's name, the full path, or not at all
+
+MODMENU_SETTINGS_BUTTON_LOCATION|ModMenu Button Location
+
+MODMENU_SETTINGS_BUTTON_LOCATION_TOOLTIP|Where the ModMenu button will appear
+
+MODMENU_SETTINGS_BUTTON_LOCATION_BELOW|Below extensions button
+
+MODMENU_SETTINGS_BUTTON_LOCATION_NEXT|Next to extensions button
+
+MODMENU_SETTINGS_BUTTON_LOCATION_ALONE|Standalone button
+
+MODMENU_USE_EXTENDED_SAVES|Use Extended Saves
+
+MODMENU_SETTINGS_ACCESSIBLE|Accessible Tooltips
+
+MODMENU_SETTINGS_ACCESSIBLE_TOOLTIP|Whether to use the built-in tooltips, or a custom and more accessible tooltip. \nFor when tooltips get cut off by high HUD scales.
+
+MODMENU_SETTINGS_ACCESSIBLE_DEFAULT|Use built-in tooltips
+
+MODMENU_SETTINGS_ACCESSIBLE_BELOW|Accessible tooltips (bottom)
+
+MODMENU_SETTINGS_ACCESSIBLE_TOP|Accessible tooltips (top)
+
+MODMENU_SAVEPAGE|Page %s

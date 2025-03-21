@@ -1,13 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ModMenu/ModMenu/menu/ModMenuSettingsLayer.gd" type="Script" id=1]
 [ext_resource path="res://ModMenu/ModMenu/menu/CheckForModUpdates.gd" type="Script" id=2]
-[ext_resource path="res://ModMenu/ModMenu/menu/ModMenuSettingsHandle.gd" type="Script" id=3]
+[ext_resource path="res://ModMenu/ModMenu/menu/MainUpdateSettings.gd" type="Script" id=3]
 [ext_resource path="res://hud/TabHintContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ModMenu/ModMenu/menu/DisplayModsLocation.gd" type="Script" id=5]
+[ext_resource path="res://ModMenu/ModMenu/menu/ZipLabel.gd" type="Script" id=6]
 [ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=7]
 [ext_resource path="res://menu/PanelWithHugeShadow.tres" type="StyleBox" id=8]
+[ext_resource path="res://ModMenu/ModMenu/menu/ButtonLocation.gd" type="Script" id=9]
 [ext_resource path="res://menu/TabsWithGamepadControl.gd" type="Script" id=10]
 [ext_resource path="res://menu/sfx/PlaySoundsOnTheseButtons.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ModMenu/ModMenu/menu/ExtendedSettings.gd" type="Script" id=12]
+[ext_resource path="res://ModMenu/ModMenu/menu/accessibleTooltips.gd" type="Script" id=13]
 
 [node name="ModMenuMenu" type="Popup"]
 margin_left = -400.0
@@ -111,16 +116,20 @@ margin_right = 1068.0
 margin_bottom = 617.0
 custom_constants/separation = 6
 
-[node name="fetchPreReleases" type="CheckButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+[node name="usePrerelease" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
 margin_right = 1068.0
 margin_bottom = 41.0
 hint_tooltip = "MODMENU_SETTINGS_FETCH_PRE_RELEASES_TOOLTIP"
-size_flags_horizontal = 3
-text = "MODMENU_SETTINGS_FETCH_PRE_RELEASES"
-align = 1
+align = 2
 script = ExtResource( 3 )
 
-[node name="OptionButton" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/usePrerelease"]
+margin_left = 20.0
+margin_right = 628.0
+margin_bottom = 39.0
+text = "MODMENU_SETTINGS_UPDATER"
+
+[node name="updatePrefs" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
 margin_top = 47.0
 margin_right = 1068.0
 margin_bottom = 88.0
@@ -128,11 +137,78 @@ hint_tooltip = "MODMENU_SETTINGS_UPDATE_PREFS_TOOLTIP"
 align = 2
 script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/OptionButton"]
+[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/updatePrefs"]
 margin_left = 20.0
 margin_right = 628.0
 margin_bottom = 39.0
 text = "MODMENU_SETTINGS_UPDATE_PREFS"
+
+[node name="displayLocation" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 1068.0
+margin_bottom = 135.0
+hint_tooltip = "MODMENU_SETTINGS_UPDATE_PREFS_TOOLTIP"
+align = 2
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/displayLocation"]
+margin_left = 20.0
+margin_right = 628.0
+margin_bottom = 39.0
+text = "MODMENU_SETTINGS_DISPLAY_LOCATION"
+
+[node name="zipListing" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+margin_top = 141.0
+margin_right = 1068.0
+margin_bottom = 182.0
+hint_tooltip = "MODMENU_SETTINGS_UPDATE_PREFS_TOOLTIP"
+align = 2
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/zipListing"]
+margin_left = 20.0
+margin_right = 628.0
+margin_bottom = 39.0
+text = "MODMENU_SETTINGS_ZIPLOCATION"
+
+[node name="buttonLocation" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 1068.0
+margin_bottom = 229.0
+hint_tooltip = "MODMENU_SETTINGS_BUTTON_LOCATION_TOOLTIP"
+align = 2
+script = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/buttonLocation"]
+margin_left = 20.0
+margin_right = 753.0
+margin_bottom = 39.0
+hint_tooltip = "MODMENU_SETTINGS_BUTTON_LOCATION_TOOLTIP"
+mouse_filter = 1
+text = "MODMENU_SETTINGS_BUTTON_LOCATION"
+
+[node name="accessibleTooltips" type="OptionButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+margin_top = 235.0
+margin_right = 1068.0
+margin_bottom = 276.0
+hint_tooltip = "MODMENU_SETTINGS_ACCESSIBLE_TOOLTIP"
+align = 2
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/accessibleTooltips"]
+margin_left = 20.0
+margin_right = 753.0
+margin_bottom = 39.0
+hint_tooltip = "MODMENU_SETTINGS_BUTTON_LOCATION_TOOLTIP"
+mouse_filter = 1
+text = "MODMENU_SETTINGS_ACCESSIBLE"
+
+[node name="extendedSaves" type="CheckButton" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer"]
+margin_top = 282.0
+margin_right = 1068.0
+margin_bottom = 323.0
+text = "MODMENU_USE_EXTENDED_SAVES"
+script = ExtResource( 12 )
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer"]
 visible = false
@@ -153,35 +229,46 @@ margin_top = 562.0
 margin_right = 1068.0
 margin_bottom = 601.0
 
-[node name="Control" type="Control" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES"]
+margin_top = 527.0
+margin_right = 398.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 0, 135 )
 
-[node name="Save" type="Button" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/Control"]
-margin_left = 7.0
-margin_top = -55.0
-margin_right = 341.0
-margin_bottom = -11.0
-focus_neighbour_right = NodePath("../Cancel")
+[node name="Save" type="Button" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/VBoxContainer"]
+margin_right = 398.0
+margin_bottom = 41.0
 text = "SETTINGS_SAVE"
 
-[node name="Cancel" type="Button" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/Control"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -367.0
-margin_top = -55.0
-margin_right = -11.0
-margin_bottom = -11.0
-focus_neighbour_left = NodePath("../Save")
+[node name="Restart" type="Button" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/VBoxContainer"]
+margin_top = 45.0
+margin_right = 398.0
+margin_bottom = 86.0
+text = "SETTINGS_SAVE_RESTART"
+
+[node name="Cancel" type="Button" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/VBoxContainer"]
+margin_top = 90.0
+margin_right = 398.0
+margin_bottom = 131.0
 text = "SETTINGS_CANCEL"
 
 [connection signal="about_to_show" from="." to="." method="_on_ModMenuMenu_about_to_show"]
-[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/OptionButton" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/OptionButton" method="_on_OptionButton_item_selected"]
-[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/OptionButton" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/OptionButton" method="_on_OptionButton_visibility_changed"]
-[connection signal="pressed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/Control/Save" to="." method="_on_Save_pressed"]
-[connection signal="pressed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/Control/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/usePrerelease" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/usePrerelease" method="_on_OptionButton_item_selected"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/usePrerelease" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/usePrerelease" method="_on_OptionButton_visibility_changed"]
+[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/updatePrefs" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/updatePrefs" method="_on_OptionButton_item_selected"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/updatePrefs" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/updatePrefs" method="_on_OptionButton_visibility_changed"]
+[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/displayLocation" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/displayLocation" method="_on_displayLocation_item_selected"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/displayLocation" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/displayLocation" method="_on_displayLocation_visibility_changed"]
+[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/zipListing" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/zipListing" method="_on_OptionButton_item_selected"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/zipListing" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/zipListing" method="_on_OptionButton_visibility_changed"]
+[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/buttonLocation" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/buttonLocation" method="_on_OptionButton_item_selected"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/buttonLocation" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/buttonLocation" method="_on_OptionButton_visibility_changed"]
+[connection signal="item_selected" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/accessibleTooltips" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/accessibleTooltips" method="_on_OptionButton_item_selected"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/accessibleTooltips" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/accessibleTooltips" method="_on_OptionButton_visibility_changed"]
+[connection signal="toggled" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/extendedSaves" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/extendedSaves" method="_toggled"]
+[connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/extendedSaves" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/MarginContainer/VBoxContainer/extendedSaves" method="_visibility_changed"]
+[connection signal="pressed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/VBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_MAIN_TOGGLES/VBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]
 
 [editable path="NoMargins/CenterContainer/TabHintContainer"]

@@ -1,17 +1,19 @@
 extends "res://Settings.gd"
 
-# Mod version
-const MOD_MENU_VERSION = "1.0.0"
-
-
 # You may want to change many of the variable names to provide a unique identifier
 # Make sure anything read by the ModMain is consistent with this file or they will not work
 # These are default config values
 # Any value not set in the config file will generate the missing values exactly as these are
 var ModMenu = {
 	"mainSettings":{
-		"fetchPreReleases":false,
-		"updatePrefs":2
+		"updatePrefs":2,
+		"displayLocation":0,
+		"updaterOption":0,
+		"zipNameDisplay":0,
+		"buttonDisplay":0,
+		"accessibleTooltips":0,
+		"savePage":1,
+		"extendedSaves":true,
 	},
 	"debugStuffNotForTheSeeingEyes":{
 		"":""

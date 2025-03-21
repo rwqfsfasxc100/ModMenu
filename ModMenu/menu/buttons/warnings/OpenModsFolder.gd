@@ -13,7 +13,7 @@ func _on_OpenFolder_pressed():
 	var currentData = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().editor_description
 	var modID = str(currentData.split("\n")[15])
 	var cacheExtension = ".modmenucache"
-	var zipStore = "user://.Mod_Menu_Cache/downloaded_zips/github_data/" + modID + cacheExtension
+	var zipStore = "user://.Mod_Menu_Cache/updatecache/downloaded_zips/github_data/" + modID + cacheExtension
 	var file = File.new()
 	file.open(zipStore, File.READ)
 	var data = file.get_as_text()
@@ -22,7 +22,7 @@ func _on_OpenFolder_pressed():
 	
 	var updateZipFolder = "user://.Mod_Menu_Cache/updated_zips/"
 	Globals.__check_folder_exists(updateZipFolder)
-	var zipToCopy = "user://.Mod_Menu_Cache/downloaded_zips/" + data.split("\n")[2]
+	var zipToCopy = "user://.Mod_Menu_Cache/updatecache/downloaded_zips/" + data.split("\n")[2]
 	var dir = Directory.new()
 	dir.copy(zipToCopy, updateZipFolder + data.split("\n")[2])
 	var hasWindows = OS.has_feature("Windows")

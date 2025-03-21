@@ -35,6 +35,7 @@ const structures = {
 		"unknown",
 		"any",
 		"0",
-		"x"
+		"x",
+		"*"
 	]
 }

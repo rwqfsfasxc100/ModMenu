@@ -43,9 +43,5 @@ func addButtons():
 		self.get_node("BTNS").add_child(config)
 		self.get_node("BTNS").get_node("Config").add_child(icon)
 		self.get_node("BTNS").get_node("Config").add_child(scroller.instance())
-
-
-#	var hasGithubReleases = nodeName[7]
-#	if not hasGithubReleases == "MODMENU_GITHUB_RELEASES_PLACEHOLDER":
-#		add_child(networkHandler.instance())
-	
+		
+		

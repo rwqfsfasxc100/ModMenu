@@ -1,6 +1,13 @@
 extends Node
 
 static func fetch_file_from_zip(path, cacheDir, desiredFiles):
+	var dFiles = ""
+	for m in desiredFiles:
+		if dFiles == "":
+			dFiles = m
+		else:
+			dFiles = dFiles + ", " + m
+	Debug.l("HevLib: function 'fetch_file_from_zip' instanced for %s in %s, looking for %s" % [path,cacheDir,dFiles])
 	var listOfNames = []
 	var uncompressed = {}
 	var zip = path.split("/")
@@ -33,5 +40,12 @@ static func fetch_file_from_zip(path, cacheDir, desiredFiles):
 					savedFiles.append(saveDir)
 				else:
 					savedFiles.append("")
+	var mFiles = ""
+	for m in savedFiles:
+		if mFiles == "":
+			mFiles = m
+		else:
+			mFiles = mFiles + ", " + m
+	Debug.l("HevLib: fetch_file_from_zip returning as %s" % mFiles)
 	return savedFiles
 	

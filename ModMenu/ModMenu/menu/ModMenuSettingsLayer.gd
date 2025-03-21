@@ -47,3 +47,8 @@ func _on_ModMenu_pressed():
 func _on_ModMenuMenu_about_to_show():
 	Settings.saveModMenuToFile()
 	lastFocus = get_focus_owner()
+
+
+func _on_Restart_pressed():
+	Settings.saveModMenuToFile()
+	Settings.restartGame()

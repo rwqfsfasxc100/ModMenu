@@ -4,11 +4,11 @@ var Globals = preload("res://ModMenu/Globals.gd").new()
 
 
 var cacheExtension = ".modmenucache"
-var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/current_mod_caches/"
-var githubDataCache = "user://.Mod_Menu_Cache/github_cache/"
-var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/persistent_mod_caches/"
-var zipStore = "user://.Mod_Menu_Cache/downloaded_zips/"
-var zipCache = "user://.Mod_Menu_Cache/zip_data_cache/"
+var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/current_mod_caches/"
+var githubDataCache = "user://.Mod_Menu_Cache/updatecache/github_cache/"
+var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
+var zipStore = "user://.Mod_Menu_Cache/updatecache/downloaded_zips/"
+var zipCache = "user://.Mod_Menu_Cache/updatecache/zip_data_cache/"
 var debugPrefix = "Mod Menu Update Checker: "
 
 
@@ -60,10 +60,10 @@ func handleZips():
 			updates = updates + updateData
 		
 		var file = File.new()
-		file.open("user://.Mod_Menu_Cache/mod.updates", File.WRITE)
+		file.open("user://.Mod_Menu_Cache/updatecache/mod.updates", File.WRITE)
 		file.store_string(updates)
 		file.close()
-		
+	
 
 
 

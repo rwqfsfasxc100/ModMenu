@@ -1,0 +1,356 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://hud/EIME.theme" type="Theme" id=1]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/TitleMissingDepsLabel.gd" type="Script" id=2]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/TitleConflictLabel.gd" type="Script" id=3]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/TitleConflictWarning.gd" type="Script" id=4]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/TitleUpdateWarning.gd" type="Script" id=5]
+[ext_resource path="res://ModMenu/menu/buttons/display/TitleWarningHandle.gd" type="Script" id=6]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/TitleUpdateLabel.gd" type="Script" id=7]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/TitleMissingDepsWarning.gd" type="Script" id=8]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://.import/warning-maint.png-ed1f26a3555845635fccb6c3940f5ad0.stex"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.25098 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0.164706, 0.25098 ) ]
+}
+
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/warning-overlay.png-be42a86fade8ccba15678c65ff71dde5.stex"
+
+[sub_resource type="Animation" id=5]
+resource_name = "Blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0.164706, 0.25098 ), Color( 1, 1, 0.164706, 0.25098 ), Color( 1, 1, 0.164706, 1 ), Color( 1, 1, 0.164706, 0.25098 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0.164706, 0.25098 ) ]
+}
+
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://ModMenu/menu/icons/missing_dependancies.png.stex"
+
+[sub_resource type="Animation" id=8]
+resource_name = "Blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.392157, 0.392157, 0.498039 ), Color( 1, 1, 1, 1 ), Color( 1, 0.392157, 0.392157, 0.498039 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.25098 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0.164706, 0.25098 ) ]
+}
+
+[sub_resource type="StreamTexture" id=10]
+flags = 4
+load_path = "res://.import/warning-overlay.png-be42a86fade8ccba15678c65ff71dde5.stex"
+
+[sub_resource type="Animation" id=11]
+resource_name = "Blink"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0.164706, 0.25098 ), Color( 1, 1, 0.164706, 0.25098 ), Color( 1, 1, 0.164706, 1 ), Color( 1, 1, 0.164706, 0.25098 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 0.164706, 0.25098 ) ]
+}
+
+[node name="Updates" type="Button"]
+margin_left = 901.0
+margin_right = 961.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 60, 40 )
+expand_icon = true
+script = ExtResource( 6 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = -311.0
+margin_top = -162.0
+margin_right = 61.0
+margin_bottom = -2.0
+grow_horizontal = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+margin_right = 372.0
+margin_bottom = 160.0
+color = Color( 0, 0, 0, 0.941176 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer"]
+margin_right = 372.0
+margin_bottom = 160.0
+border_color = Color( 0.133333, 0.133333, 0.133333, 0.941176 )
+border_width = 1.5
+editor_only = false
+
+[node name="VBoxContainer3" type="MarginContainer" parent="MarginContainer"]
+margin_right = 372.0
+margin_bottom = 160.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer3"]
+margin_right = 372.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer2"]
+margin_right = 372.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+theme = ExtResource( 1 )
+text = "MODMENU_NOTIFICATIONS"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer3"]
+margin_right = 372.0
+margin_bottom = 160.0
+alignment = 1
+
+[node name="UpdateBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer"]
+margin_top = 16.0
+margin_right = 372.0
+margin_bottom = 56.0
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox"]
+margin_right = 328.0
+margin_bottom = 40.0
+alignment = 1
+
+[node name="UpdateLabel" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox/VBoxContainer"]
+margin_top = 11.0
+margin_right = 328.0
+margin_bottom = 28.0
+theme = ExtResource( 1 )
+text = "MODMENU_TITLE_X_UPDATES_AVAILABLE"
+align = 2
+valign = 1
+uppercase = true
+script = ExtResource( 7 )
+
+[node name="UPDATE" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox"]
+modulate = Color( 1, 1, 0.164706, 0.25098 )
+margin_left = 332.0
+margin_right = 372.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 1 )
+expand = true
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox/UPDATE"]
+autoplay = "Blink"
+anims/Blink = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="ConflictBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer"]
+margin_top = 60.0
+margin_right = 372.0
+margin_bottom = 100.0
+alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox"]
+margin_left = 84.0
+margin_right = 328.0
+margin_bottom = 40.0
+alignment = 1
+
+[node name="ConflictLabel" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox/VBoxContainer2"]
+margin_top = 11.0
+margin_right = 244.0
+margin_bottom = 28.0
+theme = ExtResource( 1 )
+text = "MODMENU_TITLE_X_CONFLICTS"
+align = 2
+valign = 1
+uppercase = true
+script = ExtResource( 3 )
+
+[node name="CONFLICT" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox"]
+modulate = Color( 1, 1, 0.164706, 0.25098 )
+margin_left = 332.0
+margin_right = 372.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+texture = SubResource( 4 )
+expand = true
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox/CONFLICT"]
+autoplay = "Blink"
+anims/Blink = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="MissingDepsBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer"]
+margin_top = 104.0
+margin_right = 372.0
+margin_bottom = 144.0
+alignment = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox"]
+margin_left = 56.0
+margin_right = 328.0
+margin_bottom = 40.0
+alignment = 1
+
+[node name="DepsLabel" type="Label" parent="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/VBoxContainer3"]
+margin_top = 11.0
+margin_right = 272.0
+margin_bottom = 28.0
+theme = ExtResource( 1 )
+text = "MODMENU_TITLE_X_MISSING_DEPS"
+align = 2
+valign = 1
+uppercase = true
+script = ExtResource( 2 )
+
+[node name="MISSINGDEPS" type="HBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox"]
+margin_left = 332.0
+margin_right = 372.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+alignment = 1
+script = ExtResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/MISSINGDEPS"]
+margin_left = 5.0
+margin_right = 35.0
+margin_bottom = 40.0
+alignment = 1
+
+[node name="MISSINGDEP" type="TextureRect" parent="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/MISSINGDEPS/VBoxContainer"]
+modulate = Color( 1, 1, 0.164706, 0.25098 )
+margin_top = 5.0
+margin_right = 30.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 30, 30 )
+texture = SubResource( 7 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/MISSINGDEPS/VBoxContainer/MISSINGDEP"]
+autoplay = "Blink"
+anims/Blink = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 0.164706, 0.25098 )
+margin_left = 10.0
+margin_right = 50.0
+margin_bottom = 40.0
+texture = SubResource( 10 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect"]
+autoplay = "Blink"
+anims/Blink = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[connection signal="focus_entered" from="." to="." method="_on_Updates_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Updates_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_Updates_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Updates_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_Updates_pressed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox/VBoxContainer/UpdateLabel" to="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox/VBoxContainer/UpdateLabel" method="_on_UpdateLabel_visibility_changed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox/UPDATE" to="MarginContainer/VBoxContainer3/VBoxContainer/UpdateBox/UPDATE" method="_on_UPDATE_visibility_changed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox/VBoxContainer2/ConflictLabel" to="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox/VBoxContainer2/ConflictLabel" method="_on_ConflictLabel_visibility_changed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox/CONFLICT" to="MarginContainer/VBoxContainer3/VBoxContainer/ConflictBox/CONFLICT" method="_on_CONFLICT_visibility_changed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/VBoxContainer3/DepsLabel" to="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/VBoxContainer3/DepsLabel" method="_on_DepsLabel_visibility_changed"]
+[connection signal="visibility_changed" from="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/MISSINGDEPS" to="MarginContainer/VBoxContainer3/VBoxContainer/MissingDepsBox/MISSINGDEPS" method="_on_MISSINGDEPS_visibility_changed"]

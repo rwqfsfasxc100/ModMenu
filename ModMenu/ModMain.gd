@@ -4,8 +4,8 @@ extends Node
 # Mods are loaded from lowest to highest priority, default is 0
 const MOD_PRIORITY = 2147483648
 # Name of the mod, used for writing to the logs
-const MOD_NAME = "Mod Menu v.1.2.0"
-const MOD_VERSION = "1.2.0"
+const MOD_NAME = "Mod Menu"
+const MOD_VERSION = "1.3.1"
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
@@ -24,9 +24,10 @@ func _init(modLoader = ModLoader):
 	installScriptExtension("Settings.gd")
 	loadSettings()
 	loadDLC() # preloads DLC as things may break if this isn't done
+	installScriptExtension("SaveSlotButton.gd")
 	load("res://ModMenu/menu/ModMenuLayer.tscn")
-	
-	
+	replaceScene("PauseLayer.tscn")
+	replaceScene("enceladus/PauseLayerEnceladus.tscn")
 # Do stuff on ready
 # At this point all AutoLoads are available and the game is loaded
 func _ready():
@@ -127,8 +128,8 @@ func loadDLC():
 
 
 # Func to print messages to the logs
-func l(msg:String, title:String = MOD_NAME):
-	Debug.l("[%s]: %s" % [title, msg])
+func l(msg:String, title:String = MOD_NAME, version:String = MOD_VERSION):
+	Debug.l("[%s V%s]: %s" % [title, version, msg])
 	
 	
 # Func to scan the mods folder and return any files. Useful for checking dependancies. 

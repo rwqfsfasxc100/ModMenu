@@ -39,3 +39,12 @@ func _on_ModMenu_pressed():
 
 func _on_ModMenuLayer_about_to_show():
 	lastFocus = get_focus_owner()
+
+
+func _on_ModMenuLayer_visibility_changed():
+	
+	if visible:
+		var viewportSize = get_parent().rect_size
+		var size = rect_size
+		rect_position = (viewportSize - size) / 2
+	
