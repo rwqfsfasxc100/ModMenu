@@ -1,6 +1,6 @@
 extends Node
 
-static func fetch_folder_files(folder, showFolders):
+static func fetch_folder_files(folder, showFolders, returnFullPath):
 	Debug.l("HevLib: function 'fetch_folder_files' instanced in %s, with folders included? [%s]" % [folder, showFolders])
 	var fileList = []
 	var dir = Directory.new()
@@ -19,6 +19,10 @@ static func fetch_folder_files(folder, showFolders):
 				break
 			if dir.current_is_dir() and not showFolders:
 				continue
+			elif dir.current_is_dir() and showFolders:
+				fileName = fileName + "/"
+			if returnFullPath:
+				fileName = folder + fileName
 			fileList.append(fileName)
 	
 	

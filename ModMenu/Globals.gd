@@ -64,9 +64,9 @@ func __check_folder_exists(folder: String) -> bool:
 
 # Returns the files in the supplied folder
 # If showFolders is set to true, includes folders with the output
-func __fetch_folder_files(folder: String, showFolders: bool = false) -> Array:
+func __fetch_folder_files(folder: String, showFolders: bool = false, returnFullPath: bool = false) -> Array:
 	var f = load("res://ModMenu/globals/fetch_folder_files.gd")
-	var s = f.fetch_folder_files(folder, showFolders)
+	var s = f.fetch_folder_files(folder, showFolders, returnFullPath)
 	return s
 
 # Returns the content from a file as a string
@@ -82,4 +82,9 @@ func __get_first_file(folder: String) -> String:
 	var s = f.get_first_file(folder)
 	return s
 
-
+# Recursively deletes the provided folder
+# Returns false if the folder doesn't load
+func __recursive_delete(path: String):
+	var f = load("res://ModMenu/globals/recursive_delete.gd")
+	var s = f.recursive_delete(path)
+	return s

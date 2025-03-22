@@ -201,3 +201,23 @@ MODMENU_SETTINGS_ACCESSIBLE_BELOW|Accessible tooltips (bottom)
 MODMENU_SETTINGS_ACCESSIBLE_TOP|Accessible tooltips (top)
 
 MODMENU_SAVEPAGE|Page %s
+
+MODMENU_SETTINGS_CLEAR_CACHE|Clear Mod Menu Cache
+
+MODMENU_SETTINGS_CLEAR_CFG|Wipe Config (/cfg/) Folder
+
+MODMENU_SETTINGS_CLEAR_MM|Reset Mod Menu Config
+
+MODMENU_SAVE_TOOLTIP|Saves the current settings and exits the menu
+
+MODMENU_SAR_TOOLTIP|Saves the current settings and restarts the game \nUse for settings that don't have any immediate effect
+
+MODMENU_CANCEL_TOOLTIP|Reverts changes and exits the menu
+
+MODMENU_CACHE_REMOVE|Deletes the entirety of the Mod Menu cache and restarts the game to regenerate it from scratch. \nOnly use if you are having problems, or the cache is getting too big.
+
+MODMENU_SETTINGS_CLEAR_MM_TOOLTIP|Resets the Mod Menu config file
+
+MODMENU_SETTINGS_CLEAR_CFG_TOOLTIP|Clears the entirety of the cfg folder. \nMake sure that you want to wipe the settings of other mods in this folder
+
+MODMENU_OPEN_CACHE|Open Mod Menu Cache Directory

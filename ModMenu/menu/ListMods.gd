@@ -6,9 +6,10 @@ const modButton = preload("res://ModMenu/menu/buttons/ModButtonAdvanced.tscn")
 
 signal has_finished_validating_mods
 
-var modDependancy = []
+var modDependancy = ModLoader._modZipFiles
 var tempFolderPath = "user://.Mod_Menu_Cache/"
 var hasModMenuTemp = false
+var currentModCache = tempFolderPath + "updatecache/currentmods/"
 
 func _ready():
 	clearUpdateCache()
@@ -25,15 +26,14 @@ var modDirectory = {}
 
 func getMods():
 	Debug.l("Mod Menu: Fetching zip files from the ModLoader process")
-	var mZips = ModLoader._modZipFiles
 	var state = ""
-	for mod in mZips:
+	for mod in modDependancy:
 		if state == "":
 			state = "\n" + mod
 		else:
 			state = state + ",\n" + mod
 	Debug.l("Mod Menu: Mod zips found from the ModLoader process: %s" % state)
-	for modDir in mZips:
+	for modDir in modDependancy:
 		var zipName = modDir.split("/")[modDir.split("/").size()-1]
 		var modTruncate = zipName.split(".zip")
 		var modData = Globals.__get_mod_main(modDir, true)
@@ -158,7 +158,11 @@ func addDLCLabel():
 		buttonNode.editor_description = string
 
 func clearUpdateCache():
-	
+	Globals.__check_folder_exists(currentModCache)
+	Globals.__check_folder_exists("user://.Mod_Menu_Cache/updatecache/")
+	Globals.__check_folder_exists("user://.Mod_Menu_Cache/updatecache/downloaded_zips/")
+	Globals.__check_folder_exists("user://.Mod_Menu_Cache/conflicts/")
+	Globals.__check_folder_exists("user://.Mod_Menu_Cache/updated_zips/")
 	var file = File.new()
 	file.open("user://.Mod_Menu_Cache/updatecache/mod.updates", File.WRITE)
 	file.store_string("")
@@ -219,9 +223,9 @@ func clearUpdateCache():
 		directory.list_dir_end()
 		for f in dList:
 			directory.remove(f)
+			
 func writeDict():
 	var conflictsDir = "user://.Mod_Menu_Cache/conflicts/"
-	Globals.__check_folder_exists(conflictsDir)
 	var file = File.new()
 	file.open(conflictsDir + "validmods.modmenucache", File.WRITE)
 	file.store_string(JSON.print(modDirectory))

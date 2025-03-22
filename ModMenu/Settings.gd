@@ -21,10 +21,13 @@ var ModMenu = {
 }
 
 # The config file name. Make sure you set something unique
-var ModMenuPath = "user://ModMenusettings.cfg"
+
+var ModMenuPath = "user://cfg/ModMenu.cfg"
 var ModMenuFile = ConfigFile.new()
 
 func _ready():
+	var Globals = preload("res://ModMenu/Globals.gd").new()
+	Globals.__check_folder_exists("user://cfg")
 	loadModMenuFromFile()
 	saveModMenuToFile()
 
