@@ -6,7 +6,7 @@ var Globals = preload("res://ModMenu/Globals.gd").new()
 
 
 var cacheExtension = ".modmenucache"
-var tempFolderPath = "user://.Mod_Menu_Cache/"
+var tempFolderPath = "user://cache/.Mod_Menu_Cache/"
 var cacheFolderPath = "mod_update_cache/"
 var fileStoreDir = "mod_zip_cache/"
 var zipFolderPath = "current_update_zips/"

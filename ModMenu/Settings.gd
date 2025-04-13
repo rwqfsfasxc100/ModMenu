@@ -14,6 +14,8 @@ var ModMenu = {
 		"accessibleTooltips":0,
 		"savePage":1,
 		"extendedSaves":true,
+		"showDangerousSettings":false,
+		"reduceTitleClutter":false,
 	},
 	"debugStuffNotForTheSeeingEyes":{
 		"":""

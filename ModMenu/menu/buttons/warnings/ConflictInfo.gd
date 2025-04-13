@@ -4,7 +4,7 @@ extends Label
 
 func _on_ConflictInfo_visibility_changed():
 	pass
-	var cacheDir = "user://.Mod_Menu_Cache/conflicts/conflicts.modmenucache"
+	var cacheDir = "user://cache/.Mod_Menu_Cache/conflicts/conflicts.modmenucache"
 	var currentData = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().editor_description
 	var file = File.new()
 	file.open(cacheDir, File.READ)
@@ -16,7 +16,7 @@ func _on_ConflictInfo_visibility_changed():
 		var splitB = splitA[0].split("~|")
 		if splitB[1] == currentData.split("\n")[0]:
 			text = splitA[1]
-#	var updateDir = "user://.Mod_Menu_Cache/updatecache/mod.updates"
+#	var updateDir = "user://cache/.Mod_Menu_Cache/updatecache/mod.updates"
 #	var currentData = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().editor_description
 #	var file = File.new()
 #	file.open(updateDir, File.READ)

@@ -1,7 +1,7 @@
 extends Label
 
 
-var updateDir = "user://.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
+var updateDir = "user://cache/.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
 
 func _ready():
 	visible = false
@@ -22,7 +22,7 @@ func getModData():
 		var data = mod.split("~||~")
 		updateCounter += 1
 	if updateCounter >= 1:
-		text = TranslationServer.translate("MODMENU_TITLE_X_CONFLICTS") % updateCounter
+		text = TranslationServer.translate("MODMENU_TITLE_X_MISSING_DEPS") % updateCounter
 		visible = true
 	else:
 		visible = false

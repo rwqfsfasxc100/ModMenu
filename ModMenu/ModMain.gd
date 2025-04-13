@@ -5,7 +5,7 @@ extends Node
 const MOD_PRIORITY = 2147483648
 # Name of the mod, used for writing to the logs
 const MOD_NAME = "Mod Menu"
-const MOD_VERSION = "1.3.2"
+const MOD_VERSION = "1.3.12"
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
@@ -34,6 +34,7 @@ func _ready():
 	l("Readying")
 	replaceScene("TitleScreen.tscn")
 	updateTL("i18n/en.txt", "|")
+	updateTL("i18n/stats_en.txt", "|")
 	l("Ready")
 	
 # This function is a helper to provide any file configurations to your mod

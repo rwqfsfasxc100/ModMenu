@@ -1,7 +1,7 @@
 extends Label
 
 
-var updateDir = "user://.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
+var updateDir = "user://cache/.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
 
 func _ready():
 	var updateCounter = 0

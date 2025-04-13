@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://TitleScreen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ModMenu/menu/ModMenuLayer.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://ModMenu/menu/ExtensionPopup.gd" type="Script" id=7]
 [ext_resource path="res://ModMenu/menu/SettingsLayer.gd" type="Script" id=8]
 [ext_resource path="res://ModMenu/title/PageHandler.gd" type="Script" id=9]
+[ext_resource path="res://ModMenu/achievements/AchievementsLayer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://menu/Extensions.gd" type="Script" id=14]
 [ext_resource path="res://ModMenu/title/ButtonBelow.gd" type="Script" id=15]
 [ext_resource path="res://ModMenu/title/ButtonBeside.gd" type="Script" id=16]
@@ -40,23 +41,36 @@ margin_top = -15.0
 margin_right = 1280.0
 margin_bottom = 735.0
 
+[node name="AchievementsLayer" parent="MenuLayer/TitleMenu/NoMargins" index="4" instance=ExtResource( 10 )]
+margin_top = -15.0
+margin_right = 1280.0
+margin_bottom = 735.0
+
+[node name="VBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer" index="0"]
+margin_left = 89.0
+margin_right = 1191.0
+
 [node name="MarginContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer" index="0"]
-margin_bottom = 283.0
+margin_right = 1102.0
+margin_bottom = 247.0
 
 [node name="Logo" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer" index="0"]
-margin_bottom = 283.0
+margin_right = 1014.0
+margin_bottom = 247.0
 
 [node name="SteamAwardsNomination2022" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer" index="1"]
-margin_bottom = 283.0
+margin_left = 1018.0
+margin_right = 1102.0
+margin_bottom = 247.0
 
 [node name="SteamAwards" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer/SteamAwardsNomination2022" index="0"]
-margin_top = 31.0
-margin_bottom = 251.0
+margin_top = 13.0
+margin_bottom = 233.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer" index="1"]
-margin_top = 287.0
-margin_right = 1028.0
-margin_bottom = 330.0
+margin_top = 251.0
+margin_right = 1102.0
+margin_bottom = 294.0
 
 [node name="TextureRect" type="TextureRect" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
 margin_right = 62.0
@@ -72,33 +86,68 @@ text = "<"
 
 [node name="Page" type="PanelContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="2"]
 margin_left = 118.0
-margin_right = 543.0
+margin_right = 419.0
 margin_bottom = 43.0
 script = ExtResource( 9 )
 
 [node name="Label" type="Label" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Page" index="0"]
 margin_left = 16.0
 margin_top = 2.0
-margin_right = 409.0
+margin_right = 285.0
 margin_bottom = 41.0
-text = "MODMENU_SAVEPAGE"
+text = "MM_SAVEPAGE"
 
 [node name="Next" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="3"]
-margin_left = 547.0
-margin_right = 595.0
+margin_left = 423.0
+margin_right = 471.0
 margin_bottom = 43.0
 focus_neighbour_left = NodePath("../Prev")
+focus_neighbour_right = NodePath("../Prev2")
+text = ">"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="4"]
+margin_left = 475.0
+margin_right = 693.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
+[node name="Prev2" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="5"]
+margin_left = 697.0
+margin_right = 745.0
+margin_bottom = 43.0
+focus_neighbour_left = NodePath("../Next")
+focus_neighbour_right = NodePath("../Next2")
+text = "<"
+
+[node name="Page2" type="PanelContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="6"]
+margin_left = 749.0
+margin_right = 1050.0
+margin_bottom = 43.0
+
+[node name="Label" type="Label" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Page2" index="0"]
+margin_left = 16.0
+margin_top = 2.0
+margin_right = 285.0
+margin_bottom = 41.0
+text = "MM_SAVEPAGE"
+
+[node name="Next2" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2" index="7"]
+margin_left = 1054.0
+margin_right = 1102.0
+margin_bottom = 43.0
+focus_neighbour_left = NodePath("../Prev2")
 text = ">"
 
 [node name="HBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer" index="2"]
-margin_top = 334.0
-margin_bottom = 645.0
+margin_top = 298.0
+margin_right = 1102.0
+margin_bottom = 654.0
 
 [node name="Saves" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer" index="0"]
+margin_bottom = 356.0
 script = ExtResource( 21 )
 
 [node name="NewH" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="14"]
-visible = false
 margin_top = 315.0
 margin_right = 64.0
 margin_bottom = 356.0
@@ -106,11 +155,11 @@ icon = ExtResource( 18 )
 flat = true
 
 [node name="SlotH" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="15"]
-visible = false
 margin_left = 68.0
 margin_top = 315.0
 margin_right = 512.0
 margin_bottom = 356.0
+rect_min_size = Vector2( 444, 0 )
 size_flags_horizontal = 3
 text = "MENU_NEW"
 script = ExtResource( 22 )
@@ -131,6 +180,7 @@ margin_left = 68.0
 margin_top = 360.0
 margin_right = 512.0
 margin_bottom = 401.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-i.dv"
@@ -150,6 +200,7 @@ margin_left = 68.0
 margin_top = 405.0
 margin_right = 512.0
 margin_bottom = 446.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-j.dv"
@@ -169,6 +220,7 @@ margin_left = 68.0
 margin_top = 450.0
 margin_right = 512.0
 margin_bottom = 491.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-k.dv"
@@ -188,6 +240,7 @@ margin_left = 68.0
 margin_top = 495.0
 margin_right = 512.0
 margin_bottom = 536.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-l.dv"
@@ -207,6 +260,7 @@ margin_left = 68.0
 margin_top = 540.0
 margin_right = 512.0
 margin_bottom = 581.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-m.dv"
@@ -226,6 +280,7 @@ margin_left = 68.0
 margin_top = 585.0
 margin_right = 512.0
 margin_bottom = 626.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-n.dv"
@@ -245,6 +300,7 @@ margin_left = 68.0
 margin_top = 630.0
 margin_right = 512.0
 margin_bottom = 671.0
+rect_min_size = Vector2( 444, 0 )
 size_flags_horizontal = 3
 text = "MENU_NEW"
 script = ExtResource( 22 )
@@ -265,6 +321,7 @@ margin_left = 68.0
 margin_top = 675.0
 margin_right = 512.0
 margin_bottom = 716.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-p.dv"
@@ -284,6 +341,7 @@ margin_left = 68.0
 margin_top = 720.0
 margin_right = 512.0
 margin_bottom = 761.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-q.dv"
@@ -303,6 +361,7 @@ margin_left = 68.0
 margin_top = 765.0
 margin_right = 512.0
 margin_bottom = 806.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-r.dv"
@@ -322,6 +381,7 @@ margin_left = 68.0
 margin_top = 810.0
 margin_right = 512.0
 margin_bottom = 851.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-s.dv"
@@ -341,6 +401,7 @@ margin_left = 68.0
 margin_top = 855.0
 margin_right = 512.0
 margin_bottom = 896.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-t.dv"
@@ -360,6 +421,7 @@ margin_left = 68.0
 margin_top = 900.0
 margin_right = 512.0
 margin_bottom = 941.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-u.dv"
@@ -379,6 +441,7 @@ margin_left = 68.0
 margin_top = 945.0
 margin_right = 512.0
 margin_bottom = 986.0
+rect_min_size = Vector2( 444, 0 )
 size_flags_horizontal = 3
 text = "MENU_NEW"
 script = ExtResource( 22 )
@@ -399,6 +462,7 @@ margin_left = 68.0
 margin_top = 990.0
 margin_right = 512.0
 margin_bottom = 1031.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-w.dv"
@@ -418,6 +482,7 @@ margin_left = 68.0
 margin_top = 1035.0
 margin_right = 512.0
 margin_bottom = 1076.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-x.dv"
@@ -437,6 +502,7 @@ margin_left = 68.0
 margin_top = 1080.0
 margin_right = 512.0
 margin_bottom = 1121.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-y.dv"
@@ -456,6 +522,7 @@ margin_left = 68.0
 margin_top = 1125.0
 margin_right = 512.0
 margin_bottom = 1166.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-z.dv"
@@ -475,6 +542,7 @@ margin_left = 68.0
 margin_top = 1080.0
 margin_right = 512.0
 margin_bottom = 1121.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-1.dv"
@@ -494,12 +562,127 @@ margin_left = 68.0
 margin_top = 1125.0
 margin_right = 512.0
 margin_bottom = 1166.0
+rect_min_size = Vector2( 444, 0 )
 text = "MENU_NEW"
 script = ExtResource( 22 )
 saveSlotFile = "user://savegame-2.dv"
 accompanyingDelete = NodePath("../NewTwo")
 
-[node name="Separator" type="VBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="7"]
+[node name="NewThree" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="56"]
+visible = false
+margin_top = 1080.0
+margin_right = 64.0
+margin_bottom = 1121.0
+icon = ExtResource( 18 )
+flat = true
+
+[node name="SlotThree" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="57"]
+visible = false
+margin_left = 68.0
+margin_top = 1080.0
+margin_right = 512.0
+margin_bottom = 1121.0
+rect_min_size = Vector2( 444, 0 )
+text = "MENU_NEW"
+script = ExtResource( 22 )
+saveSlotFile = "user://savegame-3.dv"
+accompanyingDelete = NodePath("../NewThree")
+
+[node name="NewFour" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="58"]
+visible = false
+margin_top = 1125.0
+margin_right = 64.0
+margin_bottom = 1166.0
+icon = ExtResource( 18 )
+flat = true
+
+[node name="SlotFour" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="59"]
+visible = false
+margin_left = 68.0
+margin_top = 1125.0
+margin_right = 512.0
+margin_bottom = 1166.0
+rect_min_size = Vector2( 444, 0 )
+text = "MENU_NEW"
+script = ExtResource( 22 )
+saveSlotFile = "user://savegame-4.dv"
+accompanyingDelete = NodePath("../NewFour")
+
+[node name="NewFive" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="60"]
+visible = false
+margin_top = 1080.0
+margin_right = 64.0
+margin_bottom = 1121.0
+icon = ExtResource( 18 )
+flat = true
+
+[node name="SlotFive" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="61"]
+visible = false
+margin_left = 68.0
+margin_top = 1080.0
+margin_right = 512.0
+margin_bottom = 1121.0
+rect_min_size = Vector2( 444, 0 )
+text = "MENU_NEW"
+script = ExtResource( 22 )
+saveSlotFile = "user://savegame-5.dv"
+accompanyingDelete = NodePath("../NewFive")
+
+[node name="NewSix" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="62"]
+visible = false
+margin_top = 1125.0
+margin_right = 64.0
+margin_bottom = 1166.0
+icon = ExtResource( 18 )
+flat = true
+
+[node name="SlotSix" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Saves" index="63"]
+visible = false
+margin_left = 68.0
+margin_top = 1125.0
+margin_right = 512.0
+margin_bottom = 1166.0
+rect_min_size = Vector2( 444, 0 )
+text = "MENU_NEW"
+script = ExtResource( 22 )
+saveSlotFile = "user://savegame-6.dv"
+accompanyingDelete = NodePath("../NewSix")
+
+[node name="Opts" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+margin_bottom = 356.0
+
+[node name="Achievements" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="1"]
+margin_top = 45.0
+margin_right = 512.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+text = "MENU_ACHIEVEMENTS"
+
+[node name="Tales" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="2"]
+margin_top = 90.0
+margin_bottom = 131.0
+
+[node name="Credits" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="3"]
+margin_top = 135.0
+margin_bottom = 176.0
+
+[node name="Youtube" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="4"]
+margin_top = 180.0
+margin_bottom = 221.0
+
+[node name="Community" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="5"]
+margin_top = 225.0
+margin_bottom = 266.0
+
+[node name="Roadmap" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="6"]
+margin_top = 270.0
+margin_bottom = 311.0
+
+[node name="Exit" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="7"]
+margin_top = 315.0
+margin_bottom = 356.0
+
+[node name="Separator" type="VBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="8"]
 visible = false
 margin_top = 315.0
 margin_right = 512.0
@@ -507,11 +690,11 @@ margin_bottom = 335.0
 rect_min_size = Vector2( 0, 20 )
 script = ExtResource( 17 )
 
-[node name="ButtonBeside2" type="HBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="8"]
+[node name="ButtonBeside2" type="HBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts" index="9"]
 visible = false
-margin_top = 315.0
+margin_top = 360.0
 margin_right = 512.0
-margin_bottom = 356.0
+margin_bottom = 401.0
 script = ExtResource( 16 )
 
 [node name="ModMenu" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/ButtonBeside2" index="0"]
@@ -526,63 +709,91 @@ margin_left = 452.0
 margin_right = 512.0
 
 [node name="StandaloneButton" type="HBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer" index="2"]
-visible = false
 margin_left = 1032.0
 margin_right = 1102.0
-margin_bottom = 1166.0
+margin_bottom = 356.0
 rect_min_size = Vector2( 70, 70 )
 script = ExtResource( 19 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton" index="0"]
 margin_right = 70.0
-margin_bottom = 1166.0
+margin_bottom = 356.0
 rect_min_size = Vector2( 70, 70 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer" index="0"]
 margin_right = 70.0
-margin_bottom = 70.0
+margin_bottom = 282.0
+size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer" index="0"]
+[node name="ModMenu" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer" index="0"]
 margin_right = 70.0
-margin_bottom = 70.0
+margin_bottom = 282.0
 rect_min_size = Vector2( 70, 70 )
 hint_tooltip = "MENU_MODMENU_MAIN"
+script = ExtResource( 4 )
 
-[node name="TextureRect" type="TextureRect" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer/Button" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer" index="1"]
 margin_right = 70.0
-margin_bottom = 70.0
+margin_bottom = 282.0
+mouse_filter = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer/VBoxContainer" index="0"]
+margin_top = 106.0
+margin_right = 70.0
+margin_bottom = 176.0
 rect_min_size = Vector2( 70, 70 )
+mouse_filter = 2
 texture = SubResource( 21 )
 expand = true
 
 [node name="Updates" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer" index="1" instance=ExtResource( 5 )]
 margin_left = 0.0
-margin_top = 74.0
+margin_top = 286.0
 margin_right = 70.0
-margin_bottom = 144.0
+margin_bottom = 356.0
 rect_min_size = Vector2( 70, 70 )
 
-[node name="TextureRect" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates" index="1"]
+[node name="MarginContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates" index="0"]
+margin_left = -300.0
+margin_right = 72.0
+
+[node name="CONFLICT" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates" index="1"]
+margin_left = 0.0
+margin_right = 70.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 70, 70 )
+
+[node name="MISSINGDEPS" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates" index="2"]
 margin_left = 5.0
 margin_right = 65.0
-margin_bottom = 69.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 60, 60 )
+
+[node name="UPDATE" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates" index="3"]
+margin_left = 0.0
+margin_right = 40.0
+rect_min_size = Vector2( 70, 70 )
 
 [node name="MarginContainer2" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer" index="3"]
-margin_top = 649.0
+margin_top = 658.0
+margin_right = 1102.0
 
 [node name="GridContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2" index="0"]
-margin_bottom = 71.0
+margin_right = 1102.0
+margin_bottom = 62.0
 
 [node name="Extensions" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer" index="0"]
 visible = false
 
 [node name="ExtensionsBelow" type="HBoxContainer" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer" index="1"]
-margin_right = 961.0
+margin_right = 1035.0
 margin_bottom = 41.0
 script = ExtResource( 20 )
 
 [node name="Extensions" type="Button" parent="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer/ExtensionsBelow" index="0"]
-margin_right = 961.0
+margin_right = 1035.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
 text = "MENU_DLC_CONFIG"
@@ -643,15 +854,24 @@ margin_bottom = 3467.0
 [connection signal="visibility_changed" from="MenuLayer/TitleMenu/NoMargins/ExtensionPopup" to="MenuLayer/TitleMenu/NoMargins/ExtensionPopup" method="_on_ExtensionPopup_visibility_changed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Prev" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Page" method="_on_Prev_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Next" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Page" method="_on_Next_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Prev2" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Page" method="_on_PrevOpt_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Next2" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer2/Page" method="_on_NextOpt_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/Achievements" to="MenuLayer/TitleMenu/NoMargins/AchievementsLayer" method="_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/ButtonBeside2/ModMenu" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/ButtonBeside2/ModMenu" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/ButtonBeside2/ModMenu" method="_on_ModMenu_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/ButtonBeside2/Updates" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
-[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer/Button" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer/ModMenu" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer/ModMenu" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/MarginContainer/ModMenu" method="_on_ModMenu_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer/ExtensionsBelow/Extensions" to="MenuLayer/TitleMenu/NoMargins/ExtensionPopup" method="_on_Extensions_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer/ButtonBelow/ModMenu" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
+[connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer/ButtonBelow/ModMenu" to="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer/ButtonBelow/ModMenu" method="_on_ModMenu_pressed"]
 [connection signal="pressed" from="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/MarginContainer2/GridContainer/ButtonBelow/Updates" to="MenuLayer/TitleMenu/NoMargins/ModMenuLayer" method="_on_ModMenu_pressed"]
 
 [editable path="MenuLayer/TitleMenu/NoMargins/ModMenuLayer"]
 [editable path="MenuLayer/TitleMenu/NoMargins/ModMenuLayer/CenterContainer/TabHintContainer"]
+[editable path="MenuLayer/TitleMenu/NoMargins/ModMenuLayer/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS"]
+[editable path="MenuLayer/TitleMenu/NoMargins/ModMenuLayer/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_NOTIFICATIONS"]
+[editable path="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/Opts/ButtonBeside2/Updates"]
 [editable path="MenuLayer/TitleMenu/MarginContainer/VBoxContainer/HBoxContainer/StandaloneButton/VBoxContainer/Updates"]
 [editable path="AsteroidField"]

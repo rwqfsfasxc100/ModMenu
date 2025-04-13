@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://ModMenu/menu/buttons/warnings/UpdateMenu.gd" type="Script" id=1]
 [ext_resource path="res://ModMenu/menu/buttons/warnings/UpdateInfo.gd" type="Script" id=2]
 [ext_resource path="res://enceladus/ScrollWithAnalog.gd" type="Script" id=3]
 [ext_resource path="res://hud/TabHintContainer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/OpenUpdateFolder.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/GithubUpdate.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=7]
 [ext_resource path="res://menu/PanelWithHugeShadow.tres" type="StyleBox" id=8]
+[ext_resource path="res://ModMenu/menu/buttons/warnings/OpenFolder.tscn" type="PackedScene" id=9]
 [ext_resource path="res://menu/TabsWithGamepadControl.gd" type="Script" id=10]
 [ext_resource path="res://menu/sfx/PlaySoundsOnTheseButtons.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ModMenu/menu/buttons/descriptions/DescriptionAlign.gd" type="Script" id=12]
@@ -141,6 +144,12 @@ rect_min_size = Vector2( 690, 400 )
 custom_constants/separation = 6
 alignment = 2
 script = ExtResource( 13 )
+
+[node name="GithubUpdate" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_UPDATE_NOTIFICATION_HEADER/MarginContainer/VBoxContainer2" instance=ExtResource( 6 )]
+
+[node name="OpenUpdateFolder" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_UPDATE_NOTIFICATION_HEADER/MarginContainer/VBoxContainer2" instance=ExtResource( 5 )]
+
+[node name="OpenFolder" parent="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_UPDATE_NOTIFICATION_HEADER/MarginContainer/VBoxContainer2" instance=ExtResource( 9 )]
 
 [connection signal="about_to_show" from="." to="." method="_on_Popup_about_to_show"]
 [connection signal="visibility_changed" from="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_UPDATE_NOTIFICATION_HEADER/MarginContainer/MarginContainer/ScrollContainer/VBoxContainer/UpdateInfo" to="NoMargins/CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_UPDATE_NOTIFICATION_HEADER/MarginContainer/MarginContainer/ScrollContainer/VBoxContainer/UpdateInfo" method="_on_UpdateInfo_visibility_changed"]

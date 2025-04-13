@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var updateDir = "user://.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
+var updateDir = "user://cache/.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
 
 export var hasMissingDependancies = false
 

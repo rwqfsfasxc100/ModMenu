@@ -26,7 +26,6 @@ func configFolderCheck():
 	else:
 		pass
 
-
 func addButtons():
 	var icon = configIcon.instance()
 	var config = emptyConfigButton.instance()
@@ -38,10 +37,10 @@ func addButtons():
 			if not modConfigButton == null:
 				var button = modConfigButton.instance()
 				button.add_child(scroller.instance())
+				button.name = "Config"
 				self.get_node("BTNS").add_child(button)
 	else:
 		self.get_node("BTNS").add_child(config)
 		self.get_node("BTNS").get_node("Config").add_child(icon)
 		self.get_node("BTNS").get_node("Config").add_child(scroller.instance())
-		
 		

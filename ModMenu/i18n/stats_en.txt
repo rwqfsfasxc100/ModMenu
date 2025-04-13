@@ -1,0 +1,47 @@
+locale|en
+
+stat:PLAYTIME_CLASS_EMP|Minutes spent using EMP weapons
+
+stat:PLAYTIME_CLASS_KINETIC|Minutes spent using kinetic weapons
+
+stat:PLAYTIME_CLASS_LASER|Minutes spent using mining lasers
+
+stat:PLAYTIME_CLASS_PLASMA|Minutes spent using plasma throwers
+
+stat:PLAYTIME_CLASS_SCOOP|Minutes spent flying with companions
+
+stat:PLAYTIME_SHIP_ATK225|Minutes spent flying a Titan-class ship
+
+stat:PLAYTIME_SHIP_COTHON|Minutes spent flying a Cothon-class ship
+
+stat:PLAYTIME_SHIP_EIME|Minutes spent flying a Model E
+
+stat:PLAYTIME_SHIP_KITSUNE|Minutes spent flying a Kitsune
+
+stat:PLAYTIME_SHIP_OCP209|Minutes spent flying an OCP
+
+stat:PLAYTIME_SHIP_PROSPECTOR|Minutes spent flying a Prospector-class ship
+
+stat:PLAYTIME_SHIP_PROSPECTOR_BALD|Minutes spent flying the Bald Eagle
+
+stat:PLAYTIME_SHIP_TRTL|Minutes spent flying a K37-class ship
+
+stat:leaf|Total Leaf on the Wind score
+
+stat:manual|Longest purely-manual flight in seconds
+
+stat:maxDepth|Max depth reached
+
+stat:max_insurance|Largest amount of insurance held at once (E$)
+
+stat:max_insurance_k|Largest amount of insurance held at once (thousands of E$)
+
+stat:max_money|Largest amount of money held at once (E$)
+
+stat:max_money_k|Largest amount of money held at once (thosuands of E$)
+
+stat:max_money_m|Largest amount of money held at once (millions of E$)
+
+stat:max_players|Most players online at the same time
+
+stat:salvaged_ships|Number of ships salvaged

@@ -1,0 +1,15 @@
+[package]
+
+id="test.ExampleMod" # This is a unique identifier to help display that the mod is unique. Currently isn't used but useful for when usage gets implemented
+name="Example Mod" # The name of your mod that you want to display on the Mod Menu. Can also be a translation string.
+version="1.0.0" # The mod version. Leaving this blank will have the version read "UNKNOWN"
+description="A demonstratory mod to get to grips with adding info to the Mod Menu" # Mod description text used when selecting the mod name. Can also be a translation string.
+group="testing" # Mod group, intended for grouping with other mods with similar ideas/features/etc.
+github_homepage="https://github.com/example/repo/" # The URL used for the Github button.
+github_releases="https://github.com/example/repo/releases/" # The URL for the Github releases button. This button won't appear if this is left blank (blank in this case is "")
+discord_thread="https://discord.gg/dv/" # The URL used for the Discord thread.
+nexus_page="https://www.nexusmods.com/dvringsofsaturn/mods/" # The URL used for the Nexusmods page
+donations_page="https://example.url" # The URL used if you have a donations page setup. This button won't appear if this is left blank.
+wiki_page="https://example.url" # The URL used to link to a wiki page. Can be anywhere a documentation source is available, not just on the Delta-V wiki.
+custom_link="https://example.url" # The URL used if you choose to use the custom link button. This button won't appear if this is left blank.
+custom_link_name="Example url for the custom link" # The mouse-over text used for the custom URL button. Can also be a translation string.

@@ -1,10 +1,50 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=1]
 [ext_resource path="res://ModMenu/menu/ListMods.gd" type="Script" id=2]
 [ext_resource path="res://ModMenu/menu/TooltipContainer.gd" type="Script" id=3]
 [ext_resource path="res://enceladus/ScrollWithAnalog.gd" type="Script" id=4]
 [ext_resource path="res://hud/EIME.theme" type="Theme" id=5]
+[ext_resource path="res://ModMenu/menu/ClearCache.gd" type="Script" id=6]
+[ext_resource path="res://ModMenu/menu/OpenCache.gd" type="Script" id=7]
+[ext_resource path="res://ModMenu/menu/ClearCFG.gd" type="Script" id=8]
+[ext_resource path="res://ModMenu/menu/ClearMMCFG.gd" type="Script" id=9]
+[ext_resource path="res://ModMenu/menu/OpenConfigFolder.gd" type="Script" id=10]
+[ext_resource path="res://ModMenu/menu/OpenModsFolder.gd" type="Script" id=11]
+[ext_resource path="res://ModMenu/ModMenu/menu/ModMenuMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ModMenu/menu/ShowDangerousSettings.gd" type="Script" id=13]
+
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+load_path = "res://ModMenu/menu/icons/name.png.stex"
+
+[sub_resource type="StreamTexture" id=10]
+flags = 4
+load_path = "res://ModMenu/menu/icons/file.png.stex"
+
+[sub_resource type="StreamTexture" id=11]
+flags = 4
+load_path = "res://ModMenu/menu/icons/ToggleIconConfig.png.stex"
+
+[sub_resource type="StreamTexture" id=12]
+flags = 4
+load_path = "res://ModMenu/menu/icons/custom.png.stex"
+
+[sub_resource type="StreamTexture" id=13]
+flags = 4
+load_path = "res://ModMenu/menu/icons/ToggleIconConfig.png.stex"
+
+[sub_resource type="StreamTexture" id=14]
+flags = 4
+load_path = "res://.import/warning-overlay.png-be42a86fade8ccba15678c65ff71dde5.stex"
+
+[sub_resource type="StreamTexture" id=15]
+flags = 4
+load_path = "res://.import/warning-maint.png-ed1f26a3555845635fccb6c3940f5ad0.stex"
+
+[sub_resource type="StreamTexture" id=16]
+flags = 4
+load_path = "res://ModMenu/menu/icons/missing_dependancies.png.stex"
 
 [node name="MODMENU_TAB_MODS" type="Tabs"]
 anchor_right = 1.0
@@ -20,6 +60,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ModMenuMenu" parent="NoMargins" instance=ExtResource( 12 )]
+margin_left = 0.0
+margin_top = -75.0
+margin_right = 1080.0
+margin_bottom = 675.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_top = 106.0
@@ -59,3 +105,215 @@ margin_top = 41.0
 margin_right = 1064.0
 margin_bottom = 58.0
 theme = ExtResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+show_behind_parent = true
+margin_left = 1080.0
+margin_top = 103.0
+margin_right = 1168.0
+margin_bottom = 563.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+margin_left = 16.0
+margin_top = 2.0
+margin_right = 72.0
+margin_bottom = 458.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+margin_right = 56.0
+margin_bottom = 456.0
+alignment = 1
+
+[node name="OpenSettings" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 6.0
+margin_right = 56.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_SETTINGS_OPEN_MM"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/OpenSettings"]
+margin_left = 53.0
+margin_right = 103.0
+margin_bottom = 50.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 9 )
+expand = true
+
+[node name="SettingSeparator" type="PanelContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 56.0
+margin_bottom = 64.0
+
+[node name="OpenModsFolder" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 56.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_SETTINGS_OPEN_MODS"
+script = ExtResource( 11 )
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/OpenModsFolder"]
+margin_left = 50.0
+margin_top = 2.0
+margin_right = 95.0
+margin_bottom = 47.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 10 )
+expand = true
+
+[node name="OpenConfigFolder" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 122.0
+margin_right = 56.0
+margin_bottom = 172.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_SETTINGS_OPEN_CFG"
+script = ExtResource( 10 )
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/OpenConfigFolder"]
+margin_left = 50.0
+margin_top = 2.0
+margin_right = 95.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 45, 45 )
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 11 )
+expand = true
+
+[node name="OpenCache" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 176.0
+margin_right = 56.0
+margin_bottom = 226.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_OPEN_CACHE"
+script = ExtResource( 7 )
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/OpenCache"]
+margin_left = 50.0
+margin_top = 3.0
+margin_right = 95.0
+margin_bottom = 48.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 12 )
+expand = true
+
+[node name="ToggleSeparator" type="PanelContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 230.0
+margin_right = 56.0
+margin_bottom = 234.0
+
+[node name="showDangerousSettings" type="CheckButton" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 238.0
+margin_right = 56.0
+margin_bottom = 279.0
+hint_tooltip = "MODMENU_USE_DANGEROUS_SETTINGS"
+script = ExtResource( 13 )
+
+[node name="DangerSeparator" type="PanelContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 283.0
+margin_right = 56.0
+margin_bottom = 287.0
+
+[node name="ClearMMCFG" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 291.0
+margin_right = 56.0
+margin_bottom = 341.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_SETTINGS_CLEAR_MM_TOOLTIP"
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/ClearMMCFG"]
+margin_left = 50.0
+margin_top = 3.0
+margin_right = 95.0
+margin_bottom = 48.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 13 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/ClearMMCFG"]
+modulate = Color( 1, 1, 0.164706, 1 )
+margin_left = 52.0
+margin_top = -3.0
+margin_right = 77.0
+margin_bottom = 22.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 14 )
+expand = true
+
+[node name="ClearCFG" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 345.0
+margin_right = 56.0
+margin_bottom = 395.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_SETTINGS_CLEAR_CFG_TOOLTIP"
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/ClearCFG"]
+margin_left = 53.0
+margin_right = 103.0
+margin_bottom = 50.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 15 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/ClearCFG"]
+modulate = Color( 1, 1, 0.164706, 1 )
+margin_left = 52.0
+margin_top = -3.0
+margin_right = 77.0
+margin_bottom = 22.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 14 )
+expand = true
+
+[node name="ClearCache" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+margin_top = 399.0
+margin_right = 56.0
+margin_bottom = 449.0
+rect_min_size = Vector2( 50, 50 )
+hint_tooltip = "MODMENU_CACHE_REMOVE"
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/ClearCache"]
+margin_left = 48.0
+margin_top = 4.0
+margin_right = 88.0
+margin_bottom = 44.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 16 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/ClearCache"]
+modulate = Color( 1, 1, 0.164706, 1 )
+margin_left = 52.0
+margin_top = -3.0
+margin_right = 77.0
+margin_bottom = 22.0
+rect_scale = Vector2( -1, 1 )
+texture = SubResource( 14 )
+expand = true
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+margin_left = 1080.0
+margin_right = 1168.0
+margin_bottom = 60.0
+
+[node name="Button" type="Button" parent="PanelContainer2"]
+margin_left = 16.0
+margin_top = 2.0
+margin_right = 72.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 56, 56 )
+input_pass_on_modal_close_click = false
+text = "X"
+flat = true
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/OpenSettings" to="NoMargins/ModMenuMenu" method="_on_ModMenu_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/OpenModsFolder" to="PanelContainer/HBoxContainer/VBoxContainer/OpenModsFolder" method="_on_OpenModsFolder_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/OpenConfigFolder" to="PanelContainer/HBoxContainer/VBoxContainer/OpenConfigFolder" method="_on_OpenConfigFolder_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/OpenCache" to="PanelContainer/HBoxContainer/VBoxContainer/OpenCache" method="_on_OpenCache_pressed"]
+[connection signal="toggled" from="PanelContainer/HBoxContainer/VBoxContainer/showDangerousSettings" to="PanelContainer/HBoxContainer/VBoxContainer/showDangerousSettings" method="_on_showDangerousSettings_toggled"]
+[connection signal="visibility_changed" from="PanelContainer/HBoxContainer/VBoxContainer/showDangerousSettings" to="PanelContainer/HBoxContainer/VBoxContainer/showDangerousSettings" method="_visibility_changed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/ClearMMCFG" to="PanelContainer/HBoxContainer/VBoxContainer/ClearMMCFG" method="_on_ClearMMCFG_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/ClearCFG" to="PanelContainer/HBoxContainer/VBoxContainer/ClearCFG" method="_on_ClearCFG_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/VBoxContainer/ClearCache" to="PanelContainer/HBoxContainer/VBoxContainer/ClearCache" method="_on_ClearCache_pressed"]

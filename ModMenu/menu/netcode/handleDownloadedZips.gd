@@ -4,11 +4,11 @@ var Globals = preload("res://ModMenu/Globals.gd").new()
 
 
 var cacheExtension = ".modmenucache"
-var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/current_mod_caches/"
-var githubDataCache = "user://.Mod_Menu_Cache/updatecache/github_cache/"
-var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
-var zipStore = "user://.Mod_Menu_Cache/updatecache/downloaded_zips/"
-var zipCache = "user://.Mod_Menu_Cache/updatecache/zip_data_cache/"
+var slatedForUpdateCacheFolder = "user://cache/.Mod_Menu_Cache/updatecache/current_mod_caches/"
+var githubDataCache = "user://cache/.Mod_Menu_Cache/updatecache/github_cache/"
+var persistUpdateCacheFolder = "user://cache/.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
+var zipStore = "user://cache/.Mod_Menu_Cache/updatecache/downloaded_zips/"
+var zipCache = "user://cache/.Mod_Menu_Cache/updatecache/zip_data_cache/"
 var debugPrefix = "Mod Menu Update Checker: "
 
 
@@ -60,7 +60,7 @@ func handleZips():
 			updates = updates + updateData
 		
 		var file = File.new()
-		file.open("user://.Mod_Menu_Cache/updatecache/mod.updates", File.WRITE)
+		file.open("user://cache/.Mod_Menu_Cache/updatecache/mod.updates", File.WRITE)
 		file.store_string(updates)
 		file.close()
 	
@@ -71,6 +71,27 @@ func handleZips():
 func compareVersions(mod):
 	var versionFromCurrent = childData.get(mod)[2]
 	var versionFromDownload = dataDictionary.get(mod)[1]
-	if versionFromDownload > versionFromCurrent:
-		updateMods.append(mod)
+	var currentSplit = versionFromCurrent.split(".")
+	var currentSplitSize = currentSplit.size()
+	var downloadSplit = versionFromDownload.split(".")
+	var downloadSplitSize = downloadSplit.size()
+	if currentSplitSize == 1 and downloadSplitSize == 1:
+		var c = compare(versionFromCurrent, versionFromDownload)
+		if c:
+			updateMods.append(mod)
+	elif currentSplitSize == downloadSplitSize:
+		var index = 0
+		while index +1 <= currentSplitSize:
+			var c = compare(currentSplit[index],downloadSplit[index])
+			if c:
+				updateMods.append(mod)
+				break
+			index += 1
 	
+	
+	
+func compare(current, download):
+	if int(download) > int(current):
+		return true
+	else:
+		return false

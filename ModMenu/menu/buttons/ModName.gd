@@ -1,6 +1,7 @@
 extends Button
 
 onready var modData = get_parent().editor_description.split("\n")
+var focusFixed = false
 
 func _ready():
 	writeVars()
@@ -28,8 +29,39 @@ func writeVars():
 	get_node("Tooltip").editor_description = modData[0] + "\n" + modID + zipString
 
 func _process(delta):
+	if get_parent().get_parent().editor_description == "validModsVerified" and not focusFixed:
+		ensureProperFocus()
 	var tooltip = Settings.ModMenu["mainSettings"]["accessibleTooltips"]
 	if tooltip == 0:
 		hint_tooltip = modData[0] + "\n" + modID + zipString
 	else:
 		hint_tooltip = ""
+	
+	var iconNode = get_parent().get_node("VBoxContainer/Icon")
+	if iconNode.get_node("MISSINGDEPSBUTTON").visible == true:
+		focus_neighbour_left = get_path_to(iconNode.get_node("MISSINGDEPSBUTTON"))
+	elif iconNode.get_node("MISSINGDEPSBUTTON").visible == false and iconNode.get_node("CONFLICTBUTTON").visible == true:
+		focus_neighbour_left = get_path_to(iconNode.get_node("CONFLICTBUTTON"))
+	elif iconNode.get_node("MISSINGDEPSBUTTON").visible == false and iconNode.get_node("CONFLICTBUTTON").visible == false and iconNode.get_node("UPDATEBUTTON").visible == true:
+		focus_neighbour_left = get_path_to(iconNode.get_node("UPDATEBUTTON"))
+	else:
+		focus_neighbour_left = ""
+
+
+func ensureProperFocus():
+	if get_parent().get_parent().get_child_count() > 1:
+		var pos = get_parent().get_position_in_parent()
+		var modCount = get_parent().get_parent().get_child_count()
+		if pos >= 1 and pos <= modCount - 2:
+			focus_neighbour_top = get_path_to(get_parent().get_parent().get_child(pos - 1).get_node("MODNAME"))
+			focus_neighbour_bottom = get_path_to(get_parent().get_parent().get_child(pos + 1).get_node("MODNAME"))
+		
+		if pos == 0:
+			focus_neighbour_top = ""
+			focus_neighbour_bottom = get_path_to(get_parent().get_parent().get_child(pos + 1).get_node("MODNAME"))
+		if pos == modCount - 1:
+			focus_neighbour_bottom = ""
+			focus_neighbour_top = get_path_to(get_parent().get_parent().get_child(pos - 1).get_node("MODNAME"))
+		focusFixed = true
+		
+	

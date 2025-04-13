@@ -24,7 +24,7 @@ var hasFetchedValidMods = false
 onready var forceUpdateCheck = false
 
 var cacheExtension = ".modmenucache"
-var tempFolderPath = "user://.Mod_Menu_Cache/"
+var tempFolderPath = "user://cache/.Mod_Menu_Cache/"
 var cacheFolderPath = "mod_update_cache/"
 var persistFile = tempFolderPath + cacheFolderPath + "persist.current" + cacheExtension
 

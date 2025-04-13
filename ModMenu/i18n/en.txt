@@ -134,7 +134,7 @@ MODMENU_TITLE_X_UPDATES_AVAILABLE|%s mod(s) have available updates!
 
 MODMENU_TITLE_X_CONFLICTS|%s mod(s) have conflicts!
 
-MODMENU_TITLE_X_MISSING_DEPS|%s mod(s) are missing a dependancy!
+MODMENU_TITLE_X_MISSING_DEPS|%s mod(s) are missing dependancies!
 
 MODMENU_NOTIFICATIONS|Some mods need your attention!
 
@@ -200,13 +200,7 @@ MODMENU_SETTINGS_ACCESSIBLE_BELOW|Accessible tooltips (bottom)
 
 MODMENU_SETTINGS_ACCESSIBLE_TOP|Accessible tooltips (top)
 
-MODMENU_SAVEPAGE|Page %s
-
-MODMENU_SETTINGS_CLEAR_CACHE|Clear Mod Menu Cache
-
-MODMENU_SETTINGS_CLEAR_CFG|Wipe Config (/cfg/) Folder
-
-MODMENU_SETTINGS_CLEAR_MM|Reset Mod Menu Config
+MM_SAVEPAGE|Page %s
 
 MODMENU_SAVE_TOOLTIP|Saves the current settings and exits the menu
 
@@ -214,10 +208,28 @@ MODMENU_SAR_TOOLTIP|Saves the current settings and restarts the game \nUse for s
 
 MODMENU_CANCEL_TOOLTIP|Reverts changes and exits the menu
 
-MODMENU_CACHE_REMOVE|Deletes the entirety of the Mod Menu cache and restarts the game to regenerate it from scratch. \nOnly use if you are having problems, or the cache is getting too big.
+MODMENU_CACHE_REMOVE|CLEAR MOD MENU CACHE \n\nDeletes the entirety of the Mod Menu cache and restarts the game to regenerate it from scratch. \n\nOnly use if you are having problems, or the cache is getting too big.
 
-MODMENU_SETTINGS_CLEAR_MM_TOOLTIP|Resets the Mod Menu config file
+MODMENU_SETTINGS_CLEAR_MM_TOOLTIP|Reset the Mod Menu config file
 
 MODMENU_SETTINGS_CLEAR_CFG_TOOLTIP|Clears the entirety of the cfg folder. \nMake sure that you want to wipe the settings of other mods in this folder
 
 MODMENU_OPEN_CACHE|Open Mod Menu Cache Directory
+
+MODMENU_MODDEPSMISSING_EXIST_TOOLTIP|This mod has missing dependancies!
+
+MODMENU_MODCONFLICTS_EXIST_TOOLTIP|This mod currently conflicts with other(s)
+
+MODMENU_SETTINGS_OPEN_CFG|Open the cfg folder
+
+MODMENU_SETTINGS_OPEN_MODS|Open the mods folder
+
+MODMENU_SETTINGS_OPEN_MM|Open the mod menu settings panel
+
+MODMENU_USE_DANGEROUS_SETTINGS|Toggle visibility of potentially harmful settings
+
+MENU_ACHIEVEMENTS|Achievements
+
+MODMENU_PAUSELAYER_DISABLE_TOOLTIP|Accessing the mod menu is disabled during a dive as changes to mods can be dangerous.\n\nPlease modify the config file manually to make changes.
+
+MODMENU_REMOVE_CLUTTER|Reduce Title Screen Clutter

@@ -3,10 +3,10 @@ extends HTTPRequest
 var Globals = preload("res://ModMenu/Globals.gd").new()
 
 var cacheExtension = ".modmenucache"
-var slatedForUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/current_mod_caches/"
-var githubDataCache = "user://.Mod_Menu_Cache/updatecache/github_cache/"
-var persistUpdateCacheFolder = "user://.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
-var zipStore = "user://.Mod_Menu_Cache/updatecache/downloaded_zips/"
+var slatedForUpdateCacheFolder = "user://cache/.Mod_Menu_Cache/updatecache/current_mod_caches/"
+var githubDataCache = "user://cache/.Mod_Menu_Cache/updatecache/github_cache/"
+var persistUpdateCacheFolder = "user://cache/.Mod_Menu_Cache/updatecache/persistent_mod_caches/"
+var zipStore = "user://cache/.Mod_Menu_Cache/updatecache/downloaded_zips/"
 var debugPrefix = "Mod Menu Update Checker: "
 
 func start_process():

@@ -1,6 +1,6 @@
 extends TextureRect
 
-var updateDir = "user://.Mod_Menu_Cache/conflicts/conflicts.modmenucache"
+var updateDir = "user://cache/.Mod_Menu_Cache/conflicts/conflicts.modmenucache"
 
 export var hasConflicts = false
 

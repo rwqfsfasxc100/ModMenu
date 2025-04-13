@@ -7,11 +7,11 @@ const modButton = preload("res://ModMenu/menu/buttons/ModButtonAdvanced.tscn")
 signal has_finished_validating_mods
 
 var modDependancy = ModLoader._modZipFiles
-var tempFolderPath = "user://.Mod_Menu_Cache/"
+var tempFolderPath = "user://cache/.Mod_Menu_Cache/"
 var hasModMenuTemp = false
 var currentModCache = tempFolderPath + "updatecache/currentmods/"
 
-func _ready():
+func _ready():	
 	clearUpdateCache()
 	sortCache()
 	getMods()
@@ -123,9 +123,9 @@ func addDLCLabel():
 				modString = m
 			else:
 				modString = modString + "\n" + m
-		Globals.__check_folder_exists("user://.Mod_Menu_Cache/")
+		Globals.__check_folder_exists("user://cache/.Mod_Menu_Cache/")
 		var file = File.new()
-		file.open("user://.Mod_Menu_Cache/mods_used_at_last_runtime.txt",File.WRITE)
+		file.open("user://cache/.Mod_Menu_Cache/mods_used_at_last_runtime.txt",File.WRITE)
 		file.store_string(modString)
 		file.close()
 	if modDependancy.size() >= 1:
@@ -159,28 +159,28 @@ func addDLCLabel():
 
 func clearUpdateCache():
 	Globals.__check_folder_exists(currentModCache)
-	Globals.__check_folder_exists("user://.Mod_Menu_Cache/updatecache/")
-	Globals.__check_folder_exists("user://.Mod_Menu_Cache/updatecache/downloaded_zips/")
-	Globals.__check_folder_exists("user://.Mod_Menu_Cache/conflicts/")
-	Globals.__check_folder_exists("user://.Mod_Menu_Cache/updated_zips/")
+	Globals.__check_folder_exists("user://cache/.Mod_Menu_Cache/updatecache/")
+	Globals.__check_folder_exists("user://cache/.Mod_Menu_Cache/updatecache/downloaded_zips/")
+	Globals.__check_folder_exists("user://cache/.Mod_Menu_Cache/conflicts/")
+	Globals.__check_folder_exists("user://cache/.Mod_Menu_Cache/updated_zips/")
 	var file = File.new()
-	file.open("user://.Mod_Menu_Cache/updatecache/mod.updates", File.WRITE)
+	file.open("user://cache/.Mod_Menu_Cache/updatecache/mod.updates", File.WRITE)
 	file.store_string("")
 	file.close()
 	var file2 = File.new()
-	file2.open("user://.Mod_Menu_Cache/conflicts/validmods.modmenucache", File.WRITE)
+	file2.open("user://cache/.Mod_Menu_Cache/conflicts/validmods.modmenucache", File.WRITE)
 	file2.store_string("")
 	file2.close()
 	var file3 = File.new()
-	file3.open("user://.Mod_Menu_Cache/conflicts/conflicts.modmenucache", File.WRITE)
+	file3.open("user://cache/.Mod_Menu_Cache/conflicts/conflicts.modmenucache", File.WRITE)
 	file3.store_string("")
 	file3.close()
 	var file4 = File.new()
-	file4.open("user://.Mod_Menu_Cache/conflicts/dependancies.modmenucache", File.WRITE)
+	file4.open("user://cache/.Mod_Menu_Cache/conflicts/dependancies.modmenucache", File.WRITE)
 	file4.store_string("")
 	file4.close()
 	var dircheck = true
-	var zipDir = "user://.Mod_Menu_Cache/updated_zips"
+	var zipDir = "user://cache/.Mod_Menu_Cache/updated_zips"
 	var dir = Directory.new()
 	if dir.open(zipDir) != OK:
 		Debug.l("Mod Menu: Can't open mod cache folder %s." % zipDir)
@@ -202,7 +202,7 @@ func clearUpdateCache():
 		for f in dirList:
 			dir.remove(f)
 	var directory = Directory.new()
-	var dZip = "user://.Mod_Menu_Cache/updatecache/downloaded_zips"
+	var dZip = "user://cache/.Mod_Menu_Cache/updatecache/downloaded_zips"
 	var dCheck = true
 	if directory.open(dZip) != OK:
 		Debug.l("Mod Menu: Can't open mod cache folder %s." % dZip)
@@ -225,7 +225,7 @@ func clearUpdateCache():
 			directory.remove(f)
 			
 func writeDict():
-	var conflictsDir = "user://.Mod_Menu_Cache/conflicts/"
+	var conflictsDir = "user://cache/.Mod_Menu_Cache/conflicts/"
 	var file = File.new()
 	file.open(conflictsDir + "validmods.modmenucache", File.WRITE)
 	file.store_string(JSON.print(modDirectory))

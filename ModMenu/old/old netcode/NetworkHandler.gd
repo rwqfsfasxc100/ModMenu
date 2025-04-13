@@ -14,7 +14,7 @@ extends Node2D
 
 
 var cacheExtension = ".modmenucache"
-var tempFolderPath = "user://.Mod_Menu_Cache/"
+var tempFolderPath = "user://cache/.Mod_Menu_Cache/"
 var cacheFolderPath = "mod_update_cache/"
 var persistFileStatic = tempFolderPath + cacheFolderPath + "persist" + cacheExtension
 var persistFile = tempFolderPath + cacheFolderPath + "persist.current" + cacheExtension

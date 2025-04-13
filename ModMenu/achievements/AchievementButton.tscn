@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://hud/EIME.theme" type="Theme" id=1]
+[ext_resource path="res://ModMenu/achievements/AchievementButton.gd" type="Script" id=2]
+[ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://menu/sfx/PlaySoundsOnTheseButtons.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://ModMenu/menu/icons/ToggleIconOff.png.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://ModMenu/menu/icons/ToggleIconOn.png.stex"
+
+[node name="AchievementButton" type="HBoxContainer"]
+margin_right = 1080.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 960, 65 )
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 3 )
+custom_constants/separation = 8
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": "	PLAYTIME_SHIP_ATK225_10"
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 65.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 65, 65 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 65.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 65, 65 )
+
+[node name="AchievementIcon" type="TextureProgress" parent="VBoxContainer/TextureRect"]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 69.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 65, 65 )
+max_value = 1.0
+texture_under = SubResource( 1 )
+texture_progress = SubResource( 2 )
+nine_patch_stretch = true
+
+[node name="PlaySoundsOnTheseButtons" parent="." instance=ExtResource( 5 )]
+
+[node name="ACHNAME" type="HBoxContainer" parent="."]
+margin_left = 73.0
+margin_right = 1096.0
+margin_bottom = 65.0
+
+[node name="NameLabel" type="Label" parent="ACHNAME"]
+margin_right = 600.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 600, 65 )
+text = "NameTemp"
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="ACHNAME"]
+margin_left = 604.0
+margin_right = 619.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 15, 65 )
+
+[node name="DescLabel" type="Label" parent="ACHNAME"]
+margin_left = 623.0
+margin_right = 1023.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 400, 65 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "DescTemp"
+autowrap = true
+clip_text = true
+
+[node name="Progress" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 901.0
+margin_right = 924.0
+margin_bottom = 65.0
+
+[node name="Label" type="Label" parent="Progress"]
+margin_right = 23.0
+margin_bottom = 57.0
+theme = ExtResource( 1 )
+text = "%s 
+  / 
+%s"
+
+[connection signal="visibility_changed" from="." to="." method="_visibility_changed"]

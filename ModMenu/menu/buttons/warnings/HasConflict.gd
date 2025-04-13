@@ -4,7 +4,7 @@ var Globals = preload("res://ModMenu/Globals.gd").new()
 
 var currentlyInstalledMods
 
-var conflictCacheDir = "user://.Mod_Menu_Cache/conflicts/"
+var conflictCacheDir = "user://cache/.Mod_Menu_Cache/conflicts/"
 
 func _ready():
 	self.visible = false
@@ -57,7 +57,7 @@ var validModDisctionary = {}
 
 func getCurrentValidMods():
 	var file = File.new()
-	file.open("user://.Mod_Menu_Cache/conflicts/validmods.modmenucache", File.READ)
+	file.open("user://cache/.Mod_Menu_Cache/conflicts/validmods.modmenucache", File.READ)
 	var textData = file.get_as_text()
 	file.close()
 	if not textData == "":
@@ -100,37 +100,66 @@ func checkConflicts(file, invert, parent):
 			var line = 0
 			var dc = {}
 			while operations > 0:
-				var dir = {operations:[dList[0 + (line * 5)], dList[1 + (line * 5)], dList[2 + (line * 5)], dList[3 + (line * 5)], dList[4 + (line * 5)]]}
+				var dir = {operations:{"id":dList[0 + (line * 5)], "name":dList[1 + (line * 5)], "zip":dList[2 + (line * 5)], "minVersion":dList[3 + (line * 5)], "maxVersion":dList[4 + (line * 5)]}}
 				line += 1
 				operations -= 1
 				dc.merge(dir)
 			
+			var sentData
+			var dData
+			
 			var doesConflict = false
 			for p in dc:
 				var sp = dc.get(p)
-				var id = sp[0]
-				var name = sp[1]
-				var zip = sp[2]
-				var minVersion = sp[3]
-				var maxVersion = sp[4]
-				var triggers = compareToInstalledMods(id, name, zip, minVersion, maxVersion, invert)
-				if triggers and not invert:
-					triggeredMods.merge(triggers)
-				elif triggers and invert:
-					depMods.merge(triggers)
-				
+				var zip = sp.get("zip")
+				var id = sp.get("id")
+				var name = sp.get("name")
+				if name.length() == 0:
+					name = sp.get("zip")
+				var minVersion = sp.get("minVersion")
+				var maxVersion = sp.get("maxVersion")
+				sentData = compareToInstalledMods(id, name, zip, minVersion, maxVersion, invert)
+				if dData == null:
+					dData = {"id":id, "maxVersion":maxVersion, "minVersion":minVersion, "name":name, "zip":zip}
+				else:
+					var dID = dData.get("id")
+					var dZip = dData.get("zip")
+					var dMin = dData.get("minVersion")
+					var dMax = dData.get("maxVersion")
+					var dName = dData.get("name")
+					var splitter = ""
+					if invert:
+						splitter = " OR "
+					else:
+						splitter = " AND "
+					
+					dData = {"id":dID + splitter + id, "maxVersion":dMax + splitter + maxVersion, "minVersion":dMin + splitter + minVersion, "name":dName + splitter + name, "zip":dZip + splitter + zip}
+					
+			if sentData and not invert:
+				triggeredMods.merge(sentData)
+#				elif triggers and invert:
+#					depMods.merge(triggers)
+			elif not sentData and invert:
+				depMods.merge({m:dData})
+				# probably best moving this code up a level to have logic to handle all conflicts
+				# right now it exits after the first trigger
 		else:
 			var pData = content.get(m)
+			var zip = pData.get("zip")
 			var id = pData.get("id")
 			var name = pData.get("name")
-			var zip = pData.get("zip")
+			if name.length() == 0:
+				name = pData.get("zip")
 			var minVersion = pData.get("minVersion")
 			var maxVersion = pData.get("maxVersion")
 			var triggers = compareToInstalledMods(id, name, zip, minVersion, maxVersion, invert)
+			var dData = {"id":id, "maxVersion":maxVersion, "minVersion":minVersion, "name":name, "zip":zip}
 			if triggers and not invert:
 				triggeredMods.merge(triggers)
-			elif triggers and invert:
-				depMods.merge(triggers)
+#			elif triggers and invert:
+#				depMods.merge(triggers)
+			elif not triggers and invert:
+				depMods.merge({m:dData})
 	depsForDisplay.merge(depMods)
 	conflictsForDisplay.merge(triggeredMods)
 	if conflictsForDisplay.size() >= 1:
@@ -166,9 +195,9 @@ func saveDepsToFile(parent, conflictDict):
 	for p in conflictDict:
 		var ls = conflictDict.get(p)
 		if conflictNames == "":
-			conflictNames = ls[1]
+			conflictNames = ls.get("name")
 		else:
-			conflictNames = conflictNames + ", " + ls[1]
+			conflictNames = conflictNames + ", " + ls.get("name")
 	var modName = parent.editor_description.split("\n")[0]
 	Globals.__check_folder_exists(conflictCacheDir)
 	var file = File.new()

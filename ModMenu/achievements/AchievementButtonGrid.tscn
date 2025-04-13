@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://menu/MenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://menu/sfx/PlaySoundsOnTheseButtons.tscn" type="PackedScene" id=2]
+[ext_resource path="res://hud/EIME.theme" type="Theme" id=3]
+[ext_resource path="res://ModMenu/achievements/AchievementButtonGrid.gd" type="Script" id=4]
+[ext_resource path="res://SmoothScrollTo.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StreamTexture" id=3]
+flags = 4
+load_path = "res://ModMenu/menu/icons/achievement_border.stex"
+
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://ModMenu/menu/icons/ToggleIconOff.png.stex"
+
+[sub_resource type="StreamTexture" id=2]
+flags = 4
+load_path = "res://ModMenu/menu/icons/ToggleIconOn.png.stex"
+
+[node name="AchievementButtonGrid" type="GridContainer"]
+margin_right = 1080.0
+margin_bottom = 130.0
+theme = ExtResource( 1 )
+columns = 4
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 130.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 130, 130 )
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 130.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 65, 65 )
+
+[node name="AchievementOverlay" type="TextureRect" parent="VBoxContainer/TextureRect"]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 134.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 130, 130 )
+texture = SubResource( 3 )
+expand = true
+
+[node name="AchievementIcon" type="TextureProgress" parent="VBoxContainer/TextureRect"]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 69.0
+margin_bottom = 66.0
+rect_min_size = Vector2( 130, 130 )
+max_value = 1.0
+texture_under = SubResource( 1 )
+texture_progress = SubResource( 2 )
+fill_mode = 4
+nine_patch_stretch = true
+
+[node name="PlaySoundsOnTheseButtons" parent="." instance=ExtResource( 2 )]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 134.0
+margin_right = 559.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 425, 130 )
+size_flags_vertical = 3
+flat = true
+
+[node name="NameLabel" type="Label" parent="Button"]
+margin_left = 15.0
+margin_right = 415.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 400, 130 )
+size_flags_vertical = 3
+text = "NameTemp"
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="SmoothScrollTo" parent="Button" instance=ExtResource( 5 )]
+focusAt = NodePath("../..")
+
+[node name="DescLabel" type="Label" parent="."]
+margin_left = 563.0
+margin_right = 913.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 350, 130 )
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+text = "DescTemp"
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Progress" type="VBoxContainer" parent="."]
+margin_left = 917.0
+margin_right = 1080.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Progress"]
+margin_right = 163.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 70, 130 )
+theme = ExtResource( 3 )
+text = "%s 
+  / 
+%s"
+align = 2
+valign = 1
+
+[connection signal="visibility_changed" from="." to="." method="_visibility_changed"]

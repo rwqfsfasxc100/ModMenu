@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://ModMenu/menu/buttons/ModButtonAdvanced.gd" type="Script" id=1]
 [ext_resource path="res://hud/TNTRL-theme.tres" type="Theme" id=2]
@@ -17,8 +17,9 @@
 [ext_resource path="res://ModMenu/menu/buttons/warnings/ConflictMenu.tscn" type="PackedScene" id=15]
 [ext_resource path="res://ModMenu/menu/buttons/TooltipModified.gd" type="Script" id=16]
 [ext_resource path="res://ModMenu/menu/buttons/warnings/DepsMenu.tscn" type="PackedScene" id=17]
+[ext_resource path="res://ModMenu/menu/buttons/ButtonHandling.gd" type="Script" id=18]
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="StreamTexture" id=11]
 flags = 4
 load_path = "res://ModMenu/menu/icons/missing_icon.png.stex"
 
@@ -130,6 +131,10 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 0.164706, 0.25098 ) ]
 }
 
+[sub_resource type="StreamTexture" id=1]
+flags = 4
+load_path = "res://ModMenu/menu/icons/missing_icon.png.stex"
+
 [node name="HBox" type="HBoxContainer"]
 margin_right = 1017.0
 margin_bottom = 130.0
@@ -146,15 +151,16 @@ margin_right = 130.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 130, 130 )
 
-[node name="Icon" type="Sprite" parent="VBoxContainer"]
-texture = SubResource( 1 )
-centered = false
-offset = Vector2( 8, 1 )
+[node name="Icon" type="TextureRect" parent="VBoxContainer"]
+margin_right = 130.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 130, 130 )
+texture = SubResource( 11 )
+expand = true
 script = ExtResource( 9 )
 
 [node name="CONFLICTBUTTON" type="Button" parent="VBoxContainer/Icon"]
-margin_left = 8.0
-margin_right = 73.0
+margin_right = 65.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 65, 65 )
 flat = true
@@ -176,8 +182,8 @@ anims/Blink = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
 [node name="MISSINGDEPSBUTTON" type="Button" parent="VBoxContainer/Icon"]
-margin_left = 73.0
-margin_right = 138.0
+margin_left = 65.0
+margin_right = 130.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 65, 65 )
 flat = true
@@ -200,9 +206,8 @@ anims/Blink = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
 [node name="UPDATEBUTTON" type="Button" parent="VBoxContainer/Icon"]
-margin_left = 8.0
 margin_top = 65.0
-margin_right = 73.0
+margin_right = 65.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 65, 65 )
 flat = true
@@ -222,13 +227,19 @@ autoplay = "Blink"
 anims/Blink = SubResource( 6 )
 anims/RESET = SubResource( 7 )
 
+[node name="IconOLD" type="Sprite" parent="VBoxContainer"]
+visible = false
+texture = SubResource( 1 )
+centered = false
+offset = Vector2( 8, 1 )
+
 [node name="DescriptionMenu" parent="." instance=ExtResource( 14 )]
 margin_left = 138.0
 margin_right = 854.0
 margin_bottom = 600.0
 
 [node name="MODNAME" type="Button" parent="."]
-margin_left = 138.0
+margin_left = 132.0
 margin_right = 788.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 650, 130 )
@@ -304,6 +315,7 @@ script = ExtResource( 4 )
 margin_left = 986.0
 margin_right = 986.0
 margin_bottom = 130.0
+script = ExtResource( 18 )
 
 [node name="PlaySoundsOnTheseButtons" parent="." instance=ExtResource( 5 )]
 

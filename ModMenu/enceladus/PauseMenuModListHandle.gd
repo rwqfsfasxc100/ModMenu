@@ -7,7 +7,7 @@ var labelArray = []
 
 func addDLCLabel():
 	var file = File.new()
-	file.open("user://.Mod_Menu_Cache/mods_used_at_last_runtime.txt",File.READ)
+	file.open("user://cache/.Mod_Menu_Cache/mods_used_at_last_runtime.txt",File.READ)
 	var modLists = file.get_as_text().split("\n")
 	file.close()
 	if Settings.ModMenu["mainSettings"]["displayLocation"] == 0 and Settings.loadedExtensions.size() >= 1:

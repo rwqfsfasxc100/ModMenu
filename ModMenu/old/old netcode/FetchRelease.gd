@@ -1,8 +1,8 @@
 extends HTTPRequest
 
 var validMods
-var fileCacheDir = "user://.Mod_Menu_Cache/mod_update_cache/"
-var tempFolderPath = "user://.Mod_Menu_Cache/"
+var fileCacheDir = "user://cache/.Mod_Menu_Cache/mod_update_cache/"
+var tempFolderPath = "user://cache/.Mod_Menu_Cache/"
 var cacheExtension = ".modmenucache"
 var cacheFolderPath = "mod_update_cache/"
 var persistFile = tempFolderPath + cacheFolderPath + "persist.current" + cacheExtension

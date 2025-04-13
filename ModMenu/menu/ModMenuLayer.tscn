@@ -78,7 +78,6 @@ margin_bottom = 39.0
 [node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/TabHintContainer"]
 margin_right = 1070.0
 margin_bottom = 716.0
-mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/TabHintContainer/MarginContainer2"]
 margin_right = 1070.0
@@ -89,7 +88,12 @@ rect_min_size = Vector2( 0, 50 )
 margin_right = 1070.0
 margin_bottom = 50.0
 
-[node name="ModCount" parent="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="ModCount" parent="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource( 6 )]
 margin_right = 293.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 0, 50 )
@@ -112,11 +116,33 @@ grabFocusIfNone = true
 margin_right = -1.0
 margin_bottom = -1.0
 
+[node name="ModMenuMenu" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS/NoMargins" index="0"]
+margin_top = -43.0
+margin_right = 1068.0
+margin_bottom = 707.0
+
+[node name="OpenSettings" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS/PanelContainer/HBoxContainer/VBoxContainer" index="0"]
+focus_neighbour_top = NodePath("../../../../PanelContainer2/Button")
+
+[node name="Button" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS/PanelContainer2" index="0"]
+focus_neighbour_bottom = NodePath("../../PanelContainer/HBoxContainer/VBoxContainer/OpenSettings")
+
 [node name="MODMENU_TAB_NOTIFICATIONS" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl" instance=ExtResource( 7 )]
 visible = false
 
+[node name="OpenSettings" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_NOTIFICATIONS/PanelContainer/HBoxContainer/VBoxContainer" index="0"]
+focus_neighbour_top = NodePath("../../../../PanelContainer2/Button")
+
+[node name="Button" parent="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_NOTIFICATIONS/PanelContainer2" index="0"]
+focus_neighbour_bottom = NodePath("../../PanelContainer/HBoxContainer/VBoxContainer/OpenSettings")
+
 [connection signal="about_to_show" from="." to="." method="_on_ModMenuLayer_about_to_show"]
 [connection signal="visibility_changed" from="." to="." method="_on_ModMenuLayer_visibility_changed"]
-[connection signal="visibility_changed" from="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/ModCount" to="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/ModCount" method="_on_ModCount_visibility_changed"]
+[connection signal="visibility_changed" from="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/HBoxContainer/ModCount" to="CenterContainer/TabHintContainer/MarginContainer2/VBoxContainer/HBoxContainer/HBoxContainer/ModCount" method="_on_ModCount_visibility_changed"]
+[connection signal="pressed" from="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS/PanelContainer2/Button" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_NOTIFICATIONS/PanelContainer/HBoxContainer/VBoxContainer/OpenSettings" to="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS/NoMargins/ModMenuMenu" method="_on_ModMenu_pressed"]
+[connection signal="pressed" from="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_NOTIFICATIONS/PanelContainer2/Button" to="." method="_on_Cancel_pressed"]
 
 [editable path="CenterContainer/TabHintContainer"]
+[editable path="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_MODS"]
+[editable path="CenterContainer/TabHintContainer/TabsWithGamepadControl/MODMENU_TAB_NOTIFICATIONS"]

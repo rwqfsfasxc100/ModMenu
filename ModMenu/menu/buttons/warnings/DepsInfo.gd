@@ -4,7 +4,7 @@ extends Label
 
 func _on_ConflictInfo_visibility_changed():
 	pass
-	var cacheDir = "user://.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
+	var cacheDir = "user://cache/.Mod_Menu_Cache/conflicts/dependancies.modmenucache"
 	var currentData = get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().editor_description
 	var file = File.new()
 	file.open(cacheDir, File.READ)

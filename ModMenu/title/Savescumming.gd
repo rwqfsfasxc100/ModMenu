@@ -35,7 +35,7 @@ func _physics_process(delta):
 	var haveTales = Settings.areTalesInstalled()
 	if !haveTales:
 		get_parent().get_node("Opts/Tales").visible = true
-		get_parent().get_node("Opts/Tales").modulate = "070707"
+		get_parent().get_node("Opts/Tales").modulate = "222222"
 		get_parent().get_node("Opts/Tales").mouse_filter = Control.MOUSE_FILTER_IGNORE
 	get_node("SlotE").visible = true
 	get_node("NewE").visible = true
