@@ -50,6 +50,8 @@ func doesHaveAssociatedStat():
 		var achivData = Achivements.achivements
 		var statName = "stat:" + stat
 		var statValue = achivData.get(statName)
+		if statValue == null:
+			statValue = 0.0
 		return [thisAchievement, int(statValue), limit]
 		
 		
@@ -84,9 +86,12 @@ func handleStatMP(stat):
 	if int(limit) == int(0):
 		limit += 1
 	icon.max_value = int(limit)
-	icon.value = stat[1]
+	var value = stat[1]
+	if value == null:
+		value = 0
+	icon.value = value
 	pLabel.visible = true
-	pLabel.text = "%s \n  / \n%s" % [stat[1], limit]
+	pLabel.text = "%s \n  / \n%s" % [value, limit]
 
 
 func _visibility_changed():
