@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ToggleIconConfig.png-39c4f41babf24bbbc59b78aaaee631ce.stex"
+path="res://.import/ToggleIconConfig.png-a0d21148f7c37218d994d4894f3e8889.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Example Mod Menu Config/ModMenu/menu/ToggleIconConfig.png"
-dest_files=[ "res://.import/ToggleIconConfig.png-39c4f41babf24bbbc59b78aaaee631ce.stex" ]
+source_file="res://ModMenu/Example Mod/ModMenu/menu/ToggleIconConfig.png"
+dest_files=[ "res://.import/ToggleIconConfig.png-a0d21148f7c37218d994d4894f3e8889.stex" ]
 
 [params]
 
