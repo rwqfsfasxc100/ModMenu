@@ -5,7 +5,7 @@ extends Node
 const MOD_PRIORITY = 2147483648
 # Name of the mod, used for writing to the logs
 const MOD_NAME = "Mod Menu"
-const MOD_VERSION = "1.3.13"
+const MOD_VERSION = "1.3.14"
 # Path of the mod folder, automatically generated on runtime
 var modPath:String = get_script().resource_path.get_base_dir() + "/"
 # Required var for the replaceScene() func to work
@@ -20,6 +20,11 @@ var modConfig = {}
 # Script and scene replacements should be done here, before the originals are loaded
 func _init(modLoader = ModLoader):
 	l("Initializing DLC")
+	
+	var self_path = self.get_script().get_path()
+	var self_directory = self_path.split(self_path.split("/")[self_path.split("/").size() - 1])[0]
+	var self_check = load(self_directory + "mod_checker_script.tscn").instance()
+	add_child(self_check)
 # Modify Settings.gd first so we can load config and DLC
 	installScriptExtension("Settings.gd")
 	loadSettings()
