@@ -1,3 +1,6 @@
+# NOTICE: THIS MOD HAS ENDED SUPPORT
+This mod is no longer supported, and all functions provided by this mod will not be supported unless it was ported to [mod menu 2](https://github.com/rwqfsfasxc100/ModMenu2), or you directly ask me to create a standalone mod. If you have any issues with this, please upgrade and see if the issue persists.
+
 # ModMenu
 Mod Menu for ΔV: Rings of Saturn
 
